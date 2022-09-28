@@ -26,7 +26,8 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "copyfiles": "^2.4.1"
+    "copyfiles": "file:../../node_modules/copyfiles",
+    "typescript": "file:../../node_modules/typescript"
   },
   "schematics": "./schematics/collection.json",
   "ng-add": {
