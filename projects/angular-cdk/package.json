@@ -1,6 +1,9 @@
 {
   "name": "@strivestudio/angular-cdk",
+  "description": "Component Dev Kit (CDK) for building Angular UI components.",
+  "author": "Strive Studio <hi@strivestudio.de> (https://www.strivestudio.de)",
   "version": "0.0.1",
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^14.2.0",
     "@angular/core": "^14.2.0"
