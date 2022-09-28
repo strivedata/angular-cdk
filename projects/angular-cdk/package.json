@@ -1,14 +1,35 @@
 {
   "name": "@strivestudio/angular-cdk",
   "description": "Component Dev Kit (CDK) for building Angular UI components.",
-  "author": "Strive Studio <hi@strivestudio.de> (https://www.strivestudio.de)",
-  "version": "0.0.1",
+  "keywords": ["angular", "uikit"],
+  "version": "1.0.0-alpha.0",
+  "private": false,
+  "author": {
+    "name": "Strive Studio UG",
+    "email": "hi@strivestudio.de",
+    "url": "https://www.strivestudio.de"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/strivedata/angular-cdk"
+  },
+  "scripts": {
+    "build:schematics": "tsc -p tsconfig.schematics.json && copyfiles schematics/*/schema.json schematics/*/files/** schematics/collection.json ../../dist/angular-cdk/"
+  },
   "peerDependencies": {
+    "@angular/cdk": "^14.2.2",
     "@angular/common": "^14.2.0",
     "@angular/core": "^14.2.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1"
+  },
+  "schematics": "./schematics/collection.json",
+  "ng-add": {
+    "save": "dependencies"
   }
 }
