@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "concurrently -n LIB,PLAYGROUND -c magenta,cyan \"npm:start:lib\" \"npm:start:playground\"",
     "build": "ng build",
-    "start:lib": "ng build angular-cdk --watch",
-    "start:playground": "ng build angular-cdk-playground --watch",
+    "start:lib": "rm -r ./dist/angular-cdk && ng build angular-cdk --watch",
+    "start:playground": "wait-on ./dist/angular-cdk/public-api.d.ts && ng serve angular-cdk-playground",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -29,6 +29,7 @@
     "@angular/cli": "~14.2.3",
     "@angular/compiler-cli": "^14.2.0",
     "@types/jasmine": "~4.0.0",
+    "concurrently": "^7.4.0",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -36,6 +37,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "ng-packagr": "^14.2.0",
-    "typescript": "~4.7.2"
+    "typescript": "~4.7.2",
+    "wait-on": "^6.0.1"
   }
 }
