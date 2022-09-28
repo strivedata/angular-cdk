@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'lib-angular-cdk',
   template: `
     <p>
-      angular-cdk works!
+      angular-cdk works!!!
     </p>
   `,
   styles: [
