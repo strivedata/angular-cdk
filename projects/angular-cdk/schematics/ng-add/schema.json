@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "@strivestudio/angular-cdk/ng-add",
+  "title": "Add the strive-angular-cdk to your project.",
+  "type": "object",
+  "properties": {
+    "addTailwind": {
+      "type": "boolean",
+      "description": "Add Tailwind CSS",
+      "x-prompt": "Do you want to add Tailwind CSS to your project?",
+      "default": true
+    },
+    "runInstall": {
+      "type": "boolean",
+      "description": "Condition to run npm install",
+      "x-prompt": "Do you want to install all packages?",
+      "default": true
+    }
+  },
+  "required": ["addTailwind", "runInstall"],
+  "additionalProperties": false
+}
