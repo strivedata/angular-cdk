@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { AngularCdkComponent } from './angular-cdk.component';
 
 
-
 @NgModule({
   declarations: [
     AngularCdkComponent
@@ -13,4 +12,4 @@ import { AngularCdkComponent } from './angular-cdk.component';
     AngularCdkComponent
   ]
 })
-export class AngularCdkModule { }
+export class StriveAngularCdkModule { }

@@ -4,4 +4,4 @@
 
 export * from './lib/angular-cdk.service';
 export * from './lib/angular-cdk.component';
-export * from './lib/angular-cdk.module';
+export * from './lib/strive-angular-cdk.module';
