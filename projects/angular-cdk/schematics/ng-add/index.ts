@@ -15,7 +15,7 @@ export function ngAdd(options: NgAddOptions): Rule {
 
     // Rule: Add Tailwind (optional)
     if (options.addTailwind) {
-      rules.push(schematic("tailwind-setup", options));
+      rules.push(schematic("add-tailwind", options));
     }
 
     // Step 1: Chain and execute rules

@@ -1,13 +1,13 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "$id": "@strivestudio/angular-cdk/tailwind-setup",
+  "$id": "@strivestudio/angular-cdk/add-tailwind",
   "title": "Strivestudio Angular CDK Tailwind Setup",
   "type": "object",
   "properties": {
     "blue": {
-      "description": "The hex color code for blue to be used by tailwind",
+      "description": "The hex color code for blue to be used by tailwind config",
       "type": "string",
-      "x-prompt": "What is your favourite type of blue (HEX)?"
+      "x-prompt": "What is your favourite type of blue (as hex code, e.g. #123456)?"
     }
   },
   "required": [
