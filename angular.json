@@ -38,7 +38,9 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "inlineStyle": true,
+          "skipTests": true
         }
       },
       "root": "projects/angular-cdk-playground",
