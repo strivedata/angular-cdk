@@ -27,6 +27,5 @@ export function ngAdd(options: NgAddOptions): Rule {
     }
 
     return ruleChain;
-
   };
 }
