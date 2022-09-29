@@ -2,7 +2,7 @@ import { Directive, EventEmitter, HostListener, Input, Output } from '@angular/c
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Directive({
-  selector: '[superSwitch],super-switch',
+  selector: '[striveSwitch]',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: StriveAngularCdkSwitchDirective,

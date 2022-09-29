@@ -1,8 +1,20 @@
-<div class="p-l">
+<div class="p-l space-y-m">
 
   <h1 class="text-3xl font-bold text-neutral-1000">Strive Angular CDK</h1>
 
-  <button superSwitch [checked]="switch" (checkedChange)="this.switch = $event">Toggle {{ switch }}</button>
+  <!-- Directive (Headless) -->
+  <div>
+    <button striveSwitch [checked]="switch" (checkedChange)="this.switch = $event">Toggle: {{ switch }}</button>
+  </div>
+
+  <!-- Component (Styled) -->
+  <div>
+    <strive-switch
+      [checked]="switch"
+      [color]="'primary'"
+      (checkedChange)="switch = $event">
+    </strive-switch>
+  </div>
 
   <router-outlet></router-outlet>
 
