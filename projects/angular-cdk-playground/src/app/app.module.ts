@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StriveAngularCdkModule } from '@strivestudio/angular-cdk';
+import { StriveAngularCdkSwitchModule } from '@strivestudio/angular-cdk';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { StriveAngularCdkModule } from '@strivestudio/angular-cdk';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StriveAngularCdkModule
+    StriveAngularCdkSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

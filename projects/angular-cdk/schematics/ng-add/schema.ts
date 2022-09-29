@@ -1,4 +1,4 @@
-export interface NgAddOptions {
+export interface Schema {
   addTailwind: boolean;
   runInstall: boolean;
 }

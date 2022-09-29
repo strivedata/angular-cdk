@@ -6,7 +6,7 @@ import {
   schematic
 } from '@angular-devkit/schematics';
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
-import { NgAddOptions } from './schema';
+import { Schema as NgAddOptions } from './schema';
 
 export function ngAdd(options: NgAddOptions): Rule {
   return (tree: Tree, context: SchematicContext) => {

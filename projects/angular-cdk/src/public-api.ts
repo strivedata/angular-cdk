@@ -1,7 +1,7 @@
 /*
- * Public API Surface of angular-cdk
+ * Public API Surface of @strivestudio/angular-cdk
  */
 
-export * from './lib/angular-cdk.service';
-export * from './lib/angular-cdk.component';
-export * from './lib/strive-angular-cdk.module';
+// Switch Module
+export * from './lib/switch/switch.module';
+export * from './lib/switch/switch.directive';

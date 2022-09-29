@@ -1,5 +1,9 @@
-<h1 class="text-3xl font-bold underline">Welcome to the CDK!</h1>
+<div class="p-l">
 
-<lib-angular-cdk></lib-angular-cdk>
+  <h1 class="text-3xl font-bold text-neutral-1000">Strive Angular CDK</h1>
 
-<router-outlet></router-outlet>
+  <button superSwitch [checked]="switch" (checkedChange)="this.switch = $event">Toggle {{ switch }}</button>
+
+  <router-outlet></router-outlet>
+
+</div>
