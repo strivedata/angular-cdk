@@ -4,7 +4,17 @@
 
   <!-- Toggle Select Directive -->
   <div>
-    <button toggleSelect [checked]="switch" (checkedChange)="this.switch = $event">Toggle: {{ switch }}</button>
+    <button toggleSelect [checked]="switchValue" (checkedChange)="switchValue = $event">Toggle: {{ switchValue }}</button>
+  </div>
+
+  <!-- Single Select Directive -->
+  <div>
+    <div>You selected: {{ singleSelectValue || 'None' }}</div>
+    <div singleSelectGroup [selectedOption]="singleSelectValue" (selectedOptionChange)="singleSelectValue = $event" #singleSelect="singleSelectGroup">
+      <div singleSelectOption value="opt-1" [ngClass]="{ 'font-bold': singleSelect.isSelectedOption('opt-1') }">Option 1</div>
+      <div singleSelectOption value="opt-2" [ngClass]="{ 'font-bold': singleSelect.isSelectedOption('opt-2') }">Option 2</div>
+      <div singleSelectOption value="opt-3" [ngClass]="{ 'font-bold': singleSelect.isSelectedOption('opt-3') }">Option 3</div>
+    </div>
   </div>
 
   <router-outlet></router-outlet>

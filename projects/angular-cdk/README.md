@@ -49,64 +49,71 @@ The classes are all available with the `padding`, `margin`, `width`, `height`, `
 
 The library includes a set of powerful directives that help you implement common UI patterns in your components without having to write the logic/behavior. This allows you to build so called "headless" components using your own markup and styles.
 
-Selectors
-
-* Switch (Toggle)
-* Dropdown
-* Slider
-
-Overlays
-
-* Modal
-* 
-
 ### Toggle Select (Switch)
 
 Allows to toggle a value between two mutually exclusive states and always has a default value. It can be used to control a variable of type `boolean`.
 
 #### Guidelines
 
-Use a switch when there is a binary state that the user should be able to toggle instantly, e.g. `on` and `off`.
+Use a toggle select when there is a binary state that the user should be able to toggle instantly, e.g. `on` and `off`. It works like a switch.
 
 * Toggle switches should take immediate effect and should not require the user to click save or submit
-* Provide a short and concise label that describes what the control will do when the Switch is ON
-* Place labels left of the Switch and avoid adding labels to describe the currently selected value
+* Provide a short and concise label that describes what the control will do when the toggle is set to true
+* Place labels left of the toggle and avoid adding labels to describe the currently selected value
 
 #### Usage
 
 Import Module:
 
 ```typescript
-import { StriveAngularCdkSwitchModule } from '@strivestudio/angular-cdk';
+import { StriveToggleSelectModule } from '@strivestudio/angular-cdk';
 ```
 
-Use as directive:
+Use Directive:
 
 ```html
 <!-- usage without form -->
-<button superSwitch [checked]="myBoolean" (checkedChange)="myBoolean = $event">Toggle {{ switch }}</button>
+<button toggleSelect [checked]="myBoolean" (checkedChange)="myBoolean = $event">Toggle {{ myBoolean }}</button>
 
 <!-- usage within reactive forms -->
-<button superSwitch formControlName="myBoolean">Toggle {{ form.controls['switch'].value }}</button>
-```
-
-Use as component (with styles):
-
-```html
-<strive-switch
-  [checked]="myBoolean"
-  [color]="'primary'"
-  (checkedChange)="myBoolean = $event">
-</strive-switch>
+<button toggleSelect formControlName="myBoolean">Toggle {{ form.controls['myBoolean'].value }}</button>
 ```
 
 ### Single Select (Radio Group)
 
-They give you the same functionality as native HTML radio inputs, without any of the styling. Use them for building out custom UIs for selecting a single value.
+The single select directive gives you the same functionality as native HTML radio inputs, without any of the styling. Use them for building out custom UIs for selecting a single value.
 
 #### Guidelines
 
 Use a single select behavior when there is a list of two or more options that are mutually exclusive and the user has to select exactly one option.
+
+#### Usage
+
+Import Module:
+
+```typescript
+import { StriveSingleSelectModule } from '@strivestudio/angular-cdk';
+```
+
+Use Directive:
+
+```html
+<!-- usage without form -->
+<div>You selected: {{ singleSelectValue || 'None' }}</div>
+<div singleSelectGroup [selectedOption]="singleSelectValue" (selectedOptionChange)="singleSelectValue = $event">
+  <div singleSelectOption value="opt-1" [ngClass]="{ 'font-bold': singleSelectValue === 'opt-1' }">Option 1</div>
+  <div singleSelectOption value="opt-2" [ngClass]="{ 'font-bold': singleSelectValue === 'opt-2' }">Option 2</div>
+  <div singleSelectOption value="opt-3" [ngClass]="{ 'font-bold': singleSelectValue === 'opt-3' }">Option 3</div>
+</div>
+
+<!-- usage with reactive forms -->
+<div>You selected: {{ form.controls['singleSelectValue'].value || 'None' }}</div>
+<div singleSelectGroup formControlName="singleSelectValue" #singleSelect="singleSelectGroup">
+  <div singleSelectOption value="opt-1" [ngClass]="{ 'font-bold': singleSelect.isSelectedOption('opt-1') }">Option 1</div>
+  <div singleSelectOption value="opt-2" [ngClass]="{ 'font-bold': singleSelect.isSelectedOption('opt-2') }">Option 2</div>
+  <div singleSelectOption value="opt-3" [ngClass]="{ 'font-bold': singleSelect.isSelectedOption('opt-3') }">Option 3</div>
+</div>
+```
 
 ### Multi Select (Checkbox)
 

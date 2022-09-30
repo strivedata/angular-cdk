@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StriveToggleSelectModule } from '@strivestudio/angular-cdk';
+import { StriveSingleSelectModule, StriveToggleSelectModule } from '@strivestudio/angular-cdk';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,8 @@ import { StriveToggleSelectModule } from '@strivestudio/angular-cdk';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StriveToggleSelectModule
+    StriveToggleSelectModule,
+    StriveSingleSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

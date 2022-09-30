@@ -5,5 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  switch: boolean = false;
+
+  switchValue: boolean = false;
+  singleSelectValue: string = 'opt-1';
+
 }
