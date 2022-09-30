@@ -109,8 +109,8 @@ module.exports = {
         'xl': '2rem', // 32px
         '2xl': '2.5rem', // 40px
         '3xl': '3rem' // 48px
-      },
+      }
     }
   },
-  plugins: [],
+  plugins: []
 }

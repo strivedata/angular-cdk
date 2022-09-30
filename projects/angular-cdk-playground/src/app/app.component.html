@@ -2,18 +2,9 @@
 
   <h1 class="text-3xl font-bold text-neutral-1000">Strive Angular CDK</h1>
 
-  <!-- Directive (Headless) -->
+  <!-- Toggle Select Directive -->
   <div>
-    <button striveSwitch [checked]="switch" (checkedChange)="this.switch = $event">Toggle: {{ switch }}</button>
-  </div>
-
-  <!-- Component (Styled) -->
-  <div>
-    <strive-switch
-      [checked]="switch"
-      [color]="'primary'"
-      (checkedChange)="switch = $event">
-    </strive-switch>
+    <button toggleSelect [checked]="switch" (checkedChange)="this.switch = $event">Toggle: {{ switch }}</button>
   </div>
 
   <router-outlet></router-outlet>

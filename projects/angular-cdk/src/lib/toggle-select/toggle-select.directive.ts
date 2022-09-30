@@ -2,14 +2,14 @@ import { Directive, EventEmitter, HostListener, Input, Output } from '@angular/c
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Directive({
-  selector: '[striveSwitch]',
+  selector: '[toggleSelect]',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: StriveAngularCdkSwitchDirective,
+    useExisting: StriveToggleSelectDirective,
     multi: true
   }]
 })
-export class StriveAngularCdkSwitchDirective implements ControlValueAccessor {
+export class StriveToggleSelectDirective implements ControlValueAccessor {
 
   @Input() checked = false;
   @Input() disabled = false;
