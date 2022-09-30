@@ -1,5 +1,5 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
-import { StriveSingleSelectGroupDirective } from './single-select-group.directive';
+import { StriveSingleSelectDirective } from './single-select.directive';
 
 @Directive({
   selector: '[singleSelectOption]'
@@ -10,7 +10,7 @@ export class StriveSingleSelectOptionDirective {
 
   constructor(
     public elementRef: ElementRef,
-    private selectGroup: StriveSingleSelectGroupDirective
+    private selectGroup: StriveSingleSelectDirective
   ) { }
 
   get isSelectedOption(): boolean {

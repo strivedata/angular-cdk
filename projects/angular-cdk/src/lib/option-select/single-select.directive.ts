@@ -2,15 +2,15 @@ import { Directive, EventEmitter, Input, Output } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Directive({
-  selector: '[singleSelectGroup]',
-  exportAs: 'singleSelectGroup',
+  selector: '[singleSelect]',
+  exportAs: 'singleSelect',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: StriveSingleSelectGroupDirective,
+    useExisting: StriveSingleSelectDirective,
     multi: true
   }]
 })
-export class StriveSingleSelectGroupDirective {
+export class StriveSingleSelectDirective {
 
   @Input() selectedOption: any;
   @Input() disabled = false;

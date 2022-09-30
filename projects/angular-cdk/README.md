@@ -67,6 +67,10 @@ Import Module:
 
 ```typescript
 import { StriveToggleSelectModule } from '@strivestudio/angular-cdk';
+
+@NgModule({
+  imports: [StriveToggleSelectModule]
+})
 ```
 
 Use Directive:
@@ -81,11 +85,14 @@ Use Directive:
 
 ### Single Select (Radio Group)
 
-The single select directive gives you the same functionality as native HTML radio inputs, without any of the styling. Use them for building out custom UIs for selecting a single value.
+The single select directive gives you the same functionality as native HTML radio inputs, without any of the styling. Use them for building out custom UIs for selecting a single option from a group of options.
 
 #### Guidelines
 
 Use a single select behavior when there is a list of two or more options that are mutually exclusive and the user has to select exactly one option.
+
+* Clearly highlight the selected option
+* Select options instantly without confirmation
 
 #### Usage
 
@@ -93,6 +100,10 @@ Import Module:
 
 ```typescript
 import { StriveSingleSelectModule } from '@strivestudio/angular-cdk';
+
+@NgModule({
+  imports: [StriveSingleSelectModule]
+})
 ```
 
 Use Directive:
@@ -100,15 +111,15 @@ Use Directive:
 ```html
 <!-- usage without form -->
 <div>You selected: {{ singleSelectValue || 'None' }}</div>
-<div singleSelectGroup [selectedOption]="singleSelectValue" (selectedOptionChange)="singleSelectValue = $event">
+<div singleSelect [selectedOption]="singleSelectValue" (selectedOptionChange)="singleSelectValue = $event">
   <div singleSelectOption value="opt-1" [ngClass]="{ 'font-bold': singleSelectValue === 'opt-1' }">Option 1</div>
   <div singleSelectOption value="opt-2" [ngClass]="{ 'font-bold': singleSelectValue === 'opt-2' }">Option 2</div>
   <div singleSelectOption value="opt-3" [ngClass]="{ 'font-bold': singleSelectValue === 'opt-3' }">Option 3</div>
 </div>
 
 <!-- usage with reactive forms -->
-<div>You selected: {{ form.controls['singleSelectValue'].value || 'None' }}</div>
-<div singleSelectGroup formControlName="singleSelectValue" #singleSelect="singleSelectGroup">
+<div>You selected: {{ form.get('singleSelectValue')?.value || 'None' }}</div>
+<div singleSelect formControlName="singleSelectValue" #singleSelect="singleSelect">
   <div singleSelectOption value="opt-1" [ngClass]="{ 'font-bold': singleSelect.isSelectedOption('opt-1') }">Option 1</div>
   <div singleSelectOption value="opt-2" [ngClass]="{ 'font-bold': singleSelect.isSelectedOption('opt-2') }">Option 2</div>
   <div singleSelectOption value="opt-3" [ngClass]="{ 'font-bold': singleSelect.isSelectedOption('opt-3') }">Option 3</div>
@@ -116,6 +127,47 @@ Use Directive:
 ```
 
 ### Multi Select (Checkbox)
+
+The multi select directive gives you the same functionality as native HTML checkboxes, without any of the styling. Use them for building out custom UIs for selecting multiple options from a group of options.
+
+#### Guidelines
+
+Use a multi select behavior when there is a list of two or more options and the user can select more than one option. The number of selectable options can be limited or unlimited.
+
+* Clearly highlight the selected option
+* Select options instantly without confirmation
+
+#### Usage
+
+Import Module:
+
+```typescript
+import { StriveMultiSelectModule } from '@strivestudio/angular-cdk';
+
+@NgModule({
+  imports: [StriveMultiSelectModule]
+})
+```
+
+Use Directive:
+
+```html
+<!-- usage without form -->
+<div>You selected: {{ multiSelectValue | json }} ({{ 2 - multiSelectValue.length }} remaining)</div>
+<div multiSelect [maxSelectableOptions]="2" [selectedOptions]="multiSelectValue" (selectedOptionsChange)="multiSelectValue = $event">
+  <div multiSelectOption value="1" [ngClass]="{ 'font-bold': multiSelectValue.includes('1') }">Option 1</div>
+  <div multiSelectOption value="2" [ngClass]="{ 'font-bold': multiSelectValue.includes('2') }">Option 2</div>
+  <div multiSelectOption value="3" [ngClass]="{ 'font-bold': multiSelectValue.includes('3') }">Option 3</div>
+</div>
+
+<!-- usage with reactive forms -->
+<div>You selected: {{ form.get('multiSelectValue')?.value | json }}</div>
+<div multiSelect formControlName="multiSelectValue" #multiSelect="multiSelect">
+  <div multiSelectOption value="1" [ngClass]="{ 'font-bold': multiSelect.isSelected('1') }">Option 1</div>
+  <div multiSelectOption value="2" [ngClass]="{ 'font-bold': multiSelect.isSelected('2') }">Option 2</div>
+  <div multiSelectOption value="3" [ngClass]="{ 'font-bold': multiSelect.isSelected('3') }">Option 3</div>
+</div>
+```
 
 ### Dropdown Select
 

@@ -1,9 +1,15 @@
+// Angular
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StriveSingleSelectModule, StriveToggleSelectModule } from '@strivestudio/angular-cdk';
+import {
+  StriveMultiSelectModule,
+  StriveSingleSelectModule,
+  StriveToggleSelectModule
+} from '@strivestudio/angular-cdk';
 
 @NgModule({
   declarations: [
@@ -12,8 +18,10 @@ import { StriveSingleSelectModule, StriveToggleSelectModule } from '@strivestudi
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     StriveToggleSelectModule,
-    StriveSingleSelectModule
+    StriveSingleSelectModule,
+    StriveMultiSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
