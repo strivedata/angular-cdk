@@ -7,9 +7,9 @@ export * from './lib/toggle-select/toggle-select.module';
 export * from './lib/toggle-select/toggle-select.directive';
 
 // Singe Select Module
-export * from './lib/option-select/single-select.module';
-export * from './lib/option-select/single-select.directive';
-export * from './lib/option-select/single-select-option.directive';
+export * from './lib/single-select/single-select.module';
+export * from './lib/single-select/single-select.directive';
+export * from './lib/single-select/single-select-option.directive';
 
 // Multi Select Module
 export * from './lib/multi-select/multi-select.module';
