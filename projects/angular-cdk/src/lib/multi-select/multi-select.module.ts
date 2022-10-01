@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StriveMultiSelectOptionDirective } from './multi-select-option.directive';
-import { StriveMultiSelectDirective } from './multi-select.directive';
+import { MultiSelectOptionDirective } from './multi-select-option.directive';
+import { MultiSelectDirective } from './multi-select.directive';
 
 
 @NgModule({
   declarations: [
-    StriveMultiSelectDirective,
-    StriveMultiSelectOptionDirective,
+    MultiSelectDirective,
+    MultiSelectOptionDirective,
   ],
   exports: [
-    StriveMultiSelectDirective,
-    StriveMultiSelectOptionDirective,
+    MultiSelectDirective,
+    MultiSelectOptionDirective,
   ],
   imports: [
     CommonModule
   ]
 })
-export class StriveMultiSelectModule { }
+export class MultiSelectModule { }

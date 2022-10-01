@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StriveSingleSelectDirective } from './single-select.directive';
-import { StriveSingleSelectOptionDirective } from './single-select-option.directive';
+import { SingleSelectDirective } from './single-select.directive';
+import { SingleSelectOptionDirective } from './single-select-option.directive';
 
 
 @NgModule({
   declarations: [
-    StriveSingleSelectDirective,
-    StriveSingleSelectOptionDirective
+    SingleSelectDirective,
+    SingleSelectOptionDirective
   ],
   exports: [
-    StriveSingleSelectDirective,
-    StriveSingleSelectOptionDirective
+    SingleSelectDirective,
+    SingleSelectOptionDirective
   ],
   imports: [
     CommonModule
   ]
 })
-export class StriveSingleSelectModule { }
+export class SingleSelectModule { }

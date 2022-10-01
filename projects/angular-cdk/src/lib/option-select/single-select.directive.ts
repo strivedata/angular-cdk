@@ -6,11 +6,11 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   exportAs: 'singleSelect',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: StriveSingleSelectDirective,
+    useExisting: SingleSelectDirective,
     multi: true
   }]
 })
-export class StriveSingleSelectDirective {
+export class SingleSelectDirective {
 
   @Input() selectedOption: any;
   @Input() disabled = false;

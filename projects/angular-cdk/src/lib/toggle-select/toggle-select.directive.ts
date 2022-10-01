@@ -5,11 +5,11 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   selector: '[toggleSelect]',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: StriveToggleSelectDirective,
+    useExisting: ToggleSelectDirective,
     multi: true
   }]
 })
-export class StriveToggleSelectDirective implements ControlValueAccessor {
+export class ToggleSelectDirective implements ControlValueAccessor {
 
   @Input() checked = false;
   @Input() disabled = false;

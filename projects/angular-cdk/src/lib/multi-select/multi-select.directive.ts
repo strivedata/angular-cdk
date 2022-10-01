@@ -6,11 +6,11 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   exportAs: 'multiSelect',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: StriveMultiSelectDirective,
+    useExisting: MultiSelectDirective,
     multi: true
   }]
 })
-export class StriveMultiSelectDirective {
+export class MultiSelectDirective {
 
   @Input() selectedOptions: any[] = [];
   @Input() maxSelectableOptions: number = 0;

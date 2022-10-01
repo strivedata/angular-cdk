@@ -1,16 +1,16 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
-import { StriveSingleSelectDirective } from './single-select.directive';
+import { SingleSelectDirective } from './single-select.directive';
 
 @Directive({
   selector: '[singleSelectOption]'
 })
-export class StriveSingleSelectOptionDirective {
+export class SingleSelectOptionDirective {
 
   @Input() value: any;
 
   constructor(
     public elementRef: ElementRef,
-    private selectGroup: StriveSingleSelectDirective
+    private selectGroup: SingleSelectDirective
   ) { }
 
   get isSelectedOption(): boolean {

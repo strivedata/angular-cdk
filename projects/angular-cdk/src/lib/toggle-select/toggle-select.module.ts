@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StriveToggleSelectDirective } from './toggle-select.directive';
+import { ToggleSelectDirective } from './toggle-select.directive';
 
 
 @NgModule({
   declarations: [
-    StriveToggleSelectDirective
+    ToggleSelectDirective
   ],
   exports: [
-    StriveToggleSelectDirective
+    ToggleSelectDirective
   ],
   imports: [
     CommonModule
   ]
 })
-export class StriveToggleSelectModule { }
+export class ToggleSelectModule { }
