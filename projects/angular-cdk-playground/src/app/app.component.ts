@@ -16,7 +16,8 @@ export class AppComponent {
   constructor(formBuilder: FormBuilder) {
     this.form = formBuilder.group({
       singleSelectValue: null,
-      multiSelectValue: null
+      multiSelectValue: null,
+      selectedTab: 2
     });
     // Log form changes
     this.form.valueChanges.subscribe(next => {

@@ -1,5 +1,5 @@
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Directive({
   selector: '[singleSelect]',
@@ -10,7 +10,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
     multi: true
   }]
 })
-export class SingleSelectDirective {
+export class SingleSelectDirective implements ControlValueAccessor {
 
   @Input() selectedOption: any;
   @Input() disabled = false;

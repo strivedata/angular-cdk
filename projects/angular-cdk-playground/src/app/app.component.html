@@ -55,7 +55,7 @@
   <!-- Tabs Directives -->
   <div>
     <h1 class="font-bold text-xl text-neutral-600 pb-s">Tab Navigation</h1>
-    <div tabGroup #tabGroup="tabGroup">
+    <div tabGroup formControlName="selectedTab">
       <div tabList class="flex space-x-l">
         <div *tab="let tab" [ngClass]="{ 'font-bold': tab.selected }">Tab 1</div>
         <div *tab="let tab" [ngClass]="{ 'font-bold': tab.selected }">Tab 2</div>

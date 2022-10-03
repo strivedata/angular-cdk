@@ -1,5 +1,5 @@
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Directive({
   selector: '[multiSelect]',
@@ -10,7 +10,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
     multi: true
   }]
 })
-export class MultiSelectDirective {
+export class MultiSelectDirective implements ControlValueAccessor {
 
   @Input() selectedOptions: any[] = [];
   @Input() maxSelectableOptions: number = 0;
