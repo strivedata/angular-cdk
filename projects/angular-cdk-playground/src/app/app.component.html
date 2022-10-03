@@ -2,13 +2,13 @@
 
   <h1 class="text-3xl font-bold text-neutral-1000">Strive Angular CDK</h1>
 
-  <!-- Toggle Select Directive -->
+  <!-- Toggle Select -->
   <div>
     <h1 class="font-bold text-xl text-neutral-600 pb-s">Toggle-Select (Switch)</h1>
     <button toggleSelect [checked]="switchValue" (checkedChange)="switchValue = $event">Toggle: {{ switchValue }}</button>
   </div>
 
-  <!-- Single Select Directive -->
+  <!-- Single Select -->
   <div>
     <h1 class="font-bold text-xl text-neutral-600 pb-s">Single-Select</h1>
     <div>You selected: {{ singleSelectValue || 'None' }}</div>
@@ -19,7 +19,7 @@
     </div>
   </div>
 
-  <!-- Single Select Directive (Reactive Forms) -->
+  <!-- Single Select (Reactive Forms) -->
   <div>
     <h1 class="font-bold text-xl text-neutral-600 pb-s">Single-Select (Reactive Forms)</h1>
     <div>You selected: {{ form.get('singleSelectValue')?.value || 'None' }}</div>
@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <!-- Multi Select Directive -->
+  <!-- Multi Select -->
   <div>
     <h1 class="font-bold text-xl text-neutral-600 pb-s">Multi-Select</h1>
     <div>You selected: {{ multiSelectValue | json }} ({{ 2 - multiSelectValue.length }} remaining)</div>
@@ -41,7 +41,7 @@
     </div>
   </div>
 
-  <!-- Multi Select Directive (Reactive Forms) -->
+  <!-- Multi Select (Reactive Forms) -->
   <div>
     <h1 class="font-bold text-xl text-neutral-600 pb-s">Multi-Select (Reactive Forms)</h1>
     <div>You selected: {{ form.get('multiSelectValue')?.value | json }}</div>
@@ -49,6 +49,23 @@
       <div multiSelectOption [value]="1" [ngClass]="{ 'font-bold': multiSelect.isSelected(1) }">Option 1</div>
       <div multiSelectOption [value]="2" [ngClass]="{ 'font-bold': multiSelect.isSelected(2) }">Option 2</div>
       <div multiSelectOption [value]="3" [ngClass]="{ 'font-bold': multiSelect.isSelected(3) }">Option 3</div>
+    </div>
+  </div>
+
+  <!-- Tabs Directives -->
+  <div>
+    <h1 class="font-bold text-xl text-neutral-600 pb-s">Tab Navigation</h1>
+    <div tabGroup #tabGroup="tabGroup">
+      <div tabList class="flex space-x-l">
+        <div *tab="let tab" [ngClass]="{ 'font-bold': tab.selected }">Tab 1</div>
+        <div *tab="let tab" [ngClass]="{ 'font-bold': tab.selected }">Tab 2</div>
+        <div *tab="let tab" [ngClass]="{ 'font-bold': tab.selected }">Tab 3</div>
+      </div>
+      <div tabPanels>
+        <div *tabPanel>Panel 1</div>
+        <div *tabPanel>Panel 2</div>
+        <div *tabPanel>Panel 3</div>
+      </div>
     </div>
   </div>
 

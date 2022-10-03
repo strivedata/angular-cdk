@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
 import {
   MultiSelectModule,
   SingleSelectModule,
-  ToggleSelectModule
+  ToggleSelectModule,
+  TabsModule
 } from '@strivestudio/angular-cdk';
 
 @NgModule({
@@ -21,7 +22,8 @@ import {
     ReactiveFormsModule,
     ToggleSelectModule,
     SingleSelectModule,
-    MultiSelectModule
+    MultiSelectModule,
+    TabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
