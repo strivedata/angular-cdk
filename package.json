@@ -5,8 +5,8 @@
     "ng": "ng",
     "start": "concurrently -n LIB,PLAYGROUND -c magenta,cyan \"npm:start:lib\" \"npm:start:playground\"",
     "build": "ng build",
-    "start:lib": "rm -r ./dist/angular-cdk && ng build angular-cdk --watch",
-    "start:playground": "wait-on ./dist/angular-cdk/public-api.d.ts && ng serve angular-cdk-playground",
+    "start:lib": "rm -r ./dist/angular-cdk/README.md && ng build angular-cdk --watch",
+    "start:playground": "wait-on ./dist/angular-cdk/README.md && ng serve angular-cdk-playground",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
