@@ -2,3 +2,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.border-neutral {
+    @apply border-neutral-200 dark:border-white;
+}
+
+.card {
+    
+    @apply flex flex-col bg-white border border-neutral shadow-sm rounded-xl dark:bg-gray-800 dark:border-neutral-600 dark:shadow-slate-700/[.7];
+
+    &.--small {
+        @apply p-sm;
+    }
+
+    &.--medium {
+        @apply p-md;  
+    }
+
+    &.--large {
+        @apply p-lg;  
+    }
+
+}

@@ -1,17 +1,9 @@
-// Angular
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {
-  MultiSelectModule,
-  SingleSelectModule,
-  ToggleSelectModule,
-  TabsModule,
-  StepperModule
-} from '@strivestudio/angular-cdk';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -20,12 +12,7 @@ import {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    ToggleSelectModule,
-    SingleSelectModule,
-    MultiSelectModule,
-    TabsModule,
-    StepperModule
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

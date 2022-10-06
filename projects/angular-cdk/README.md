@@ -4,6 +4,10 @@ Component Dev Kit (CDK) for building Angular UI components.
 
 ## Design System
 
+1. A simplified Tailwind Config with less, but more meaningful base classes that make your design more consistent.
+2. A set of utility classes 
+3. Component Styles based on the tailwind and utility classes
+
 ### Colors
 
 The theme replaces the default tailwind colors with a more semantic color scheme consisting of the following colors:
@@ -24,6 +28,10 @@ Each color comes with a set of 10 different tints and shades reaching from 100-1
 ### Fonts
 
 The theme is build around five basic typefaces:
+
+#### Subheadlines
+
+The subhead should be the first choice to heirarchally label different areas of content. Use it to separate long runs of copy into mangeable pieces. For example, the subhead should be the first choice when breaking a long form into many sections.
 
 * Normal Body Text (default font size) -> 16px (1rem)
 * Large Body Text

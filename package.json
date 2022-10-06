@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently -n LIB,PLAYGROUND -c magenta,cyan \"npm:start:lib\" \"npm:start:playground\"",
+    "start": "concurrently -n LIB,PLAYGROUND -c magenta,cyan \"npm:start:lib\" \"npm:start:docs\"",
     "build": "ng build",
     "start:lib": "rm -r ./dist/angular-cdk/README.md && ng build angular-cdk --watch",
     "start:playground": "wait-on ./dist/angular-cdk/README.md && ng serve angular-cdk-playground",
+    "start:docs": "wait-on ./dist/angular-cdk/README.md && ng serve angular-cdk-docs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -20,6 +21,7 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "ngx-highlightjs": "^7.0.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

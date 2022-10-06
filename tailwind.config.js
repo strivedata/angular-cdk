@@ -2,113 +2,145 @@
 module.exports = {
   content: [
     "./projects/angular-cdk-playground/src/**/*.{html,ts}",
+    "./projects/angular-cdk-docs/src/**/*.{html,ts}",
   ],
   theme: {
-    colors: {
-      'transparent': 'transparent',
-      'current': 'currentColor',
-      'black': '#000000',
-      'white': '#ffffff',
-      'primary': {
-        DEFAULT: '#03449E',
-        100: '#E6F6FF',
-        200: '#BAE3FF',
-        300: '#7CC4FA',
-        400: '#47A3F3',
-        500: '#2186EB',
-        600: '#0967D2',
-        700: '#0552B5',
-        800: '#03449E',
-        900: '#01337D',
-        1000: '#002159'
-      },
-      'accent': {
-        DEFAULT: '#e4548b',
-        100: '#fadde8',
-        200: '#f4bbd1',
-        300: '#ef98b9',
-        400: '#e976a2',
-        500: '#e4548b',
-        600: '#cd4c7d',
-        700: '#a03b61',
-        800: '#722a46',
-        900: '#44192a'
-      },
-      'neutral': {
-        DEFAULT: '#7B8794',
-        100: '#F5F7FA',
-        200: '#E4E7EB',
-        300: '#CBD2D9',
-        400: '#9AA5B1',
-        500: '#7B8794',
-        600: '#616E7C',
-        700: '#52606D',
-        800: '#3E4C59',
-        900: '#323F4B',
-        1000: '#1F2933'
-      },
-      'info': {
-        DEFAULT: '#1CD4D4',
-        100: '#E1FCF8',
-        200: '#C1FEF6',
-        300: '#92FDF2',
-        400: '#62F4EB',
-        500: '#3AE7E1',
-        600: '#1CD4D4',
-        700: '#0FB5BA',
-        800: '#099AA4',
-        900: '#07818F',
-        1000: '#05606E'
-      },
-      'success': {
-        DEFAULT: '#3EBD93',
-        100: '#EFFCF6',
-        200: '#C6F7E2',
-        300: '#8EEDC7',
-        400: '#65D6AD',
-        500: '#3EBD93',
-        600: '#27AB83',
-        700: '#199473',
-        800: '#147D64',
-        900: '#0C6B58',
-        1000: '#014D40'
-      },
-      'alert': {
-        DEFAULT: '#F7C948',
-        100: '#FFFBEA',
-        200: '#FFF3C4',
-        300: '#FCE588',
-        400: '#FADB5F',
-        500: '#F7C948',
-        600: '#F0B429',
-        700: '#DE911D',
-        800: '#CB6E17',
-        900: '#B44D12',
-        1000: '#8D2B0B'
-      },
-      'error': {
-        DEFAULT: '#E12D39',
-        100: '#FFE3E3',
-        200: '#FFBDBD',
-        300: '#FF9B9B',
-        400: '#F86A6A',
-        500: '#EF4E4E',
-        600: '#E12D39',
-        700: '#CF1124',
-        800: '#AB091E',
-        900: '#8A041A',
-        1000: '#610316'
-      }
+    fontFamily: {
+      sans: ['Helvetica', 'sans-serif'],
+      serif: ['Merriweather', 'serif'],
+    },
+    screens: {
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px'
+    },
+    fontSize: {
+      'body': '0.875rem',
+      'body-lg': '1rem',
+      'body-sm': '0.75rem',
+      'headline-page': '1.5rem',
+      'headline-section': '1.125rem',
+      // Alternative
+      'xs': '0.75rem', // 12px (small text app)
+      'sm': '0.875rem', // 14px (body text app + small text marketing)
+      'base': '1rem', // 16px (body text marketing + large text app)
+      'lg': '1.125rem', // 18px (section headline app + large text marketing)
+      'xl': '1.5rem', // 24px (page headline app)
+      '2xl': '2rem', // 32px (section headline marketing)
+      '3xl': '4rem' // 64px (page headline marketing)
     },
     extend: {
+      borderRadius: {
+        DEFAULT: '0.25rem',
+        'none': '0',
+        'sm': '0.125rem',
+        'md': '0.375rem',
+        'lg': '0.5rem',
+        'full': '9999px'
+      },
       spacing: {
-        'xs': '0.25rem', // 4px
-        's': '0.5rem', // 8px
-        'm': '1rem', // 16px
-        'l': '1.5rem', // 24px
-        'xl': '2rem', // 32px
-        '2xl': '2.5rem', // 40px
-        '3xl': '3rem' // 48px
+        '0': '0', // 0px
+        '1/4': '0.125rem', // 2px
+        '1/2': '0.25rem', // 4px
+        '1': '0.5rem', // 8px
+        '2': '1rem', // 16px
+        '3': '1.5rem', // 24px
+        '4': '2rem',// 32px
+        '8': '4rem', // 64px
+        '16': '8rem' // 128px
+      },
+      colors: {
+        'transparent': 'transparent',
+        'current': 'currentColor',
+        'black': '#000000',
+        'white': '#ffffff',
+        'primary': {
+          DEFAULT: '#03449E',
+          100: '#E6F6FF',
+          200: '#BAE3FF',
+          300: '#7CC4FA',
+          400: '#47A3F3',
+          500: '#2186EB',
+          600: '#0967D2',
+          700: '#0552B5',
+          800: '#03449E',
+          900: '#01337D'
+        },
+        'accent': {
+          DEFAULT: '#e4548b',
+          100: '#fadde8',
+          200: '#f4bbd1',
+          300: '#ef98b9',
+          400: '#e976a2',
+          500: '#e4548b',
+          600: '#cd4c7d',
+          700: '#a03b61',
+          800: '#722a46',
+          900: '#44192a'
+        },
+        'neutral': {
+          DEFAULT: '#FFFFFF',
+          50: '#FFFFFF',
+          100: '#FAFBFC',
+          200: '#F4F5F7',
+          300: '#C2C5CC',
+          400: '#ACB0BA',
+          500: '#969BA7',
+          600: '#515761',
+          700: '#383C43',
+          800: '#383C43', // default text color, shade-1 in dark mode
+          900: '#1E2024',
+          1000: '#050506'
+        },
+        'info': {
+          DEFAULT: '#1CD4D4',
+          100: '#E1FCF8',
+          200: '#C1FEF6',
+          300: '#92FDF2',
+          400: '#62F4EB',
+          500: '#3AE7E1',
+          600: '#1CD4D4',
+          700: '#0FB5BA',
+          800: '#099AA4',
+          900: '#07818F'
+        },
+        'confirm': {
+          DEFAULT: '#3EBD93',
+          100: '#EFFCF6',
+          200: '#C6F7E2',
+          300: '#8EEDC7',
+          400: '#65D6AD',
+          500: '#3EBD93',
+          600: '#27AB83',
+          700: '#199473',
+          800: '#147D64',
+          900: '#0C6B58'
+        },
+        'warn': {
+          DEFAULT: '#F7C948',
+          100: '#FFFBEA',
+          200: '#FFF3C4',
+          300: '#FCE588',
+          400: '#FADB5F',
+          500: '#F7C948',
+          600: '#F0B429',
+          700: '#DE911D',
+          800: '#CB6E17',
+          900: '#B44D12'
+        },
+        'error': {
+          DEFAULT: '#E12D39',
+          100: '#FFE3E3',
+          200: '#FFBDBD',
+          300: '#FF9B9B',
+          400: '#F86A6A',
+          500: '#EF4E4E',
+          600: '#E12D39',
+          700: '#CF1124',
+          800: '#AB091E',
+          900: '#8A041A'
+        }
       }
     }
   },

@@ -1,0 +1,25 @@
+<!-- Header -->
+<div>
+  <div>Step: {{ selectedStepIndex }}</div>
+</div>
+
+<ng-template #default></ng-template>
+
+<!-- Steps -->
+<ng-container>
+  <step>Content Step 0</step>
+  <step>Cotent Step 1</step>
+</ng-container>
+
+<!-- Body -->
+<div id="content">
+
+  <!-- Outlet to display selected step -->
+  <ng-container [ngTemplateOutlet]="selectedStep?.content || default"></ng-container>
+  
+</div>
+
+<!-- Footer -->
+<div>
+  <button (click)="next()">Next Step</button>
+</div>
