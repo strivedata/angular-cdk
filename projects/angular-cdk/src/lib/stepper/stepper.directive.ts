@@ -1,10 +1,11 @@
 import {
-  Directive,
-  Input,
+  Directive, EventEmitter,
+  Input, Output,
   QueryList,
   ViewChildren
 } from '@angular/core';
 import { StriveCdkStep } from './step.component';
+import { StepperSelectionEvent } from './stepper.model';
 
 @Directive({
   selector: '[scdk-stepper]',
@@ -33,7 +34,7 @@ export class StriveCdkStepper {
   }
 
   /**
-   *  Sets the index for the selected step and select this as the new selected step.
+   *  Sets the index for the selected step and selects this as the new selected step.
    * @param index
    */
   set selectedStepIndex(index: number) {
@@ -49,6 +50,9 @@ export class StriveCdkStepper {
       this._selectedStepIndex = index;
     }
   }
+
+  /** Emitted when the selected step has changed. */
+  @Output() readonly selectedStepChange = new EventEmitter<StepperSelectionEvent>();
 
   /**
    * Selects the step at the index after the currently selected step.
@@ -73,11 +77,18 @@ export class StriveCdkStepper {
 
   /**
    * Selects the step at the given index
-   * @param index - The index of the step to be selected
+   * @param newIndex - The index of the step to be selected.
    * @private
    */
-  private selectStepAtIndex(index: number): void {
-    this._selectedStepIndex = index;
+  private selectStepAtIndex(newIndex: number): void {
+    const stepsArray = this.steps.toArray();
+    this.selectedStepChange.emit({
+      selectedStepIndex: newIndex,
+      previousStepIndex: this._selectedStepIndex,
+      selectedStep: stepsArray[newIndex],
+      previousStep: stepsArray[this._selectedStepIndex]
+    });
+    this._selectedStepIndex = newIndex;
   }
 
   /**

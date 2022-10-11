@@ -9,6 +9,7 @@ export class StepperComponent extends StriveCdkStepper implements OnInit {
 
   constructor() {
     super();
+    this.selectedStepChange.subscribe(next => console.log(next));
   }
 
   ngOnInit(): void { }
