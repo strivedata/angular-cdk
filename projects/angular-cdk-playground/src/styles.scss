@@ -3,14 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
   @apply bg-neutral text-neutral;
 }
 
 /* Strive Design System */
-
-
 .page-headline {
 
 }
@@ -41,7 +38,6 @@ body {
 
 }
 
-
 // Text
 .text-marketing-headline {
   @apply text-3xl font-bold;
@@ -62,7 +58,7 @@ body {
 
 // Level Styles for backgrounds, borders etc. -> level, prio, rank, tier, accent, grade, step, position, class, hierarchy, degree, weight, highlight
 .bg-neutral {
-  @apply bg-neutral-50 dark:bg-neutral-1000; // either lightest or darkest neutral shade
+  @apply bg-neutral-50 dark:bg-neutral-1000;
 }
 .bg-neutral-shade-1 {
   @apply bg-neutral-100 dark:bg-neutral-900;

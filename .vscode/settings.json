@@ -1,0 +1,9 @@
+{
+  "files.associations": {
+    "*.scss": "postcss",
+    "*.css": "postcss"
+  },
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false
+}
