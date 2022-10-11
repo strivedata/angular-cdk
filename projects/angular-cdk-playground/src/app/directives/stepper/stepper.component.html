@@ -7,8 +7,9 @@
 
 <!-- Steps -->
 <ng-container>
-  <step>Content Step 0</step>
-  <step>Cotent Step 1</step>
+  <scdk-step>Content Step 0</scdk-step>
+  <scdk-step>Content Step 1</scdk-step>
+  <scdk-step>Content Step 2</scdk-step>
 </ng-container>
 
 <!-- Body -->
@@ -16,10 +17,11 @@
 
   <!-- Outlet to display selected step -->
   <ng-container [ngTemplateOutlet]="selectedStep?.content || default"></ng-container>
-  
+
 </div>
 
 <!-- Footer -->
 <div>
+  <button (click)="previous()">Previous Step</button>
   <button (click)="next()">Next Step</button>
 </div>
