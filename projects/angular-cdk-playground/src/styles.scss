@@ -13,29 +13,29 @@ body {
 }
 
 .section-headline {
-
+  @apply text-lg font-bold;
 }
 
-.page-headline {
-
+.page-headline-marketing {
+  @apply text-3xl font-bold;
 }
 
 .section-headline-marketing {
-
+  @apply text-2xl font-bold;
 }
 
 
 // Layout Containers
 .container-narrow {
-
+  @apply max-w-3xl mx-auto px-4 sm:px-4 lg:px-8;
 }
 
 .container-default {
-    @apply max-w-7xl;
+  @apply max-w-5xl mx-auto px-4 sm:px-4 lg:px-8;
 }
 
 .container-wide {
-
+  @apply max-w-7xl mx-auto px-4 sm:px-4 lg:px-8;
 }
 
 // Text
