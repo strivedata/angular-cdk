@@ -9,7 +9,7 @@ body {
 
 /* Strive Design System */
 .page-headline {
-
+  @apply text-xl font-bold;
 }
 
 .section-headline {
@@ -31,7 +31,7 @@ body {
 }
 
 .container-default {
-
+    @apply max-w-7xl;
 }
 
 .container-wide {
