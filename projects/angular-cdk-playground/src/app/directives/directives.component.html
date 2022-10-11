@@ -72,4 +72,23 @@
 
 </form>
 
+<app-stepper>
+  <scdk-step [label]="'step x'">Content Step 0</scdk-step>
+  <scdk-step>Content Step 1</scdk-step>
+  <scdk-step>Content Step 2</scdk-step>
+</app-stepper>
+
+<scdk-stepper #stepper="scdkStepper">
+  <div>Step: {{ stepper.selectedStepIndex }}</div>
+  <scdk-step #step0>Content Step 0 <div (click)="step0.complete()">Complete Me!</div></scdk-step>
+  <scdk-step>Content Step 1</scdk-step>
+
+  <div [ngClass]="{ 'opacity-50': stepper.selectedStep?.completed }">
+    <ng-container [ngTemplateOutlet]="stepper.selectedStep ? stepper.selectedStep.content : null"></ng-container>
+  </div>
+
+  <div (click)="stepper.next()">Next</div>
+
+</scdk-stepper>
+
 <router-outlet></router-outlet>

@@ -1,20 +1,22 @@
 import {
-  Directive, EventEmitter,
-  Input, Output,
-  QueryList,
-  ViewChildren
+  ChangeDetectionStrategy,
+  Component, ContentChildren,
+  Directive, EventEmitter, forwardRef, Inject,
+  Input, OnInit, Output,
+  QueryList, TemplateRef, ViewChild,
+  ViewChildren, ViewEncapsulation
 } from '@angular/core';
-import { StriveCdkStep } from './step.component';
-import { StepperSelectionEvent } from './stepper.model';
+import { StepChangeEvent } from './stepper.model';
+import { StriveCdkStep } from './step';
 
 @Directive({
-  selector: '[scdk-stepper]',
-  exportAs: 'scdk-stepper'
+  selector: '[scdkStepper],scdk-stepper',
+  exportAs: 'scdkStepper'
 })
 export class StriveCdkStepper {
 
   /** List of all steps for this stepper that are contained in the component's template. */
-  @ViewChildren(StriveCdkStep) steps!: QueryList<StriveCdkStep>;
+  @ContentChildren(StriveCdkStep) steps!: QueryList<StriveCdkStep>;
 
   /** Returns component of the selected step. */
   @Input() get selectedStep(): StriveCdkStep | undefined {
@@ -23,7 +25,7 @@ export class StriveCdkStepper {
 
   /** Sets the component for the selected step. */
   set selectedStep(step: StriveCdkStep | undefined) {
-    this.selectedStepIndex = step && this.steps.toArray().indexOf(step) || -1;
+    this.selectedStepIndex = step ? this.steps.toArray().indexOf(step) : -1;
   }
 
   private _selectedStepIndex = 0;
@@ -35,24 +37,26 @@ export class StriveCdkStepper {
 
   /**
    *  Sets the index for the selected step and selects this as the new selected step.
-   * @param index
+   * @param newIndex
    */
-  set selectedStepIndex(index: number) {
+  set selectedStepIndex(newIndex: number) {
     if (this.steps) {
-      if (!this.isValidIndex(index)) {
+      if (!this.isValidIndex(newIndex)) {
         // ensure we can't select steps that don't exist
         throw Error('[StriveCdkStepper]: Cannot assign out-of-bounds index.');
       }
-      this.selectStepAtIndex(index);
+      if (newIndex !== this._selectedStepIndex) {
+        this.selectStepAtIndex(newIndex);
+      }
     } else {
       // method has been called before steps have been loaded, so we can't check if this is valid index and
       // must select it 'blanco'
-      this._selectedStepIndex = index;
+      this._selectedStepIndex = newIndex;
     }
   }
 
   /** Emitted when the selected step has changed. */
-  @Output() readonly selectedStepChange = new EventEmitter<StepperSelectionEvent>();
+  @Output() readonly selectedStepChange = new EventEmitter<StepChangeEvent>();
 
   /**
    * Selects the step at the index after the currently selected step.

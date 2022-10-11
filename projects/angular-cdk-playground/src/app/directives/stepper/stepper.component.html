@@ -1,16 +1,9 @@
 <!-- Header -->
-<div>
-  <div>Step: {{ selectedStepIndex }}</div>
+<div class="flex">
+  <div *ngFor="let step of steps; index as i" [ngClass]="step.isSelected ? 'font-bold' : 'font-normal'">Step {{ step.label || i + 1 }}</div>
 </div>
 
 <ng-template #default></ng-template>
-
-<!-- Steps -->
-<ng-container>
-  <scdk-step>Content Step 0</scdk-step>
-  <scdk-step>Content Step 1</scdk-step>
-  <scdk-step>Content Step 2</scdk-step>
-</ng-container>
 
 <!-- Body -->
 <div id="content">

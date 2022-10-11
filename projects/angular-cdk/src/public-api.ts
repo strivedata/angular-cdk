@@ -25,6 +25,6 @@ export * from './lib/tabs/tab-list.directive';
 export * from './lib/tabs/tabs.module';
 
 // Stepper Module
-export * from './lib/stepper/stepper.directive';
-export * from './lib/stepper/step.component';
+export * from './lib/stepper/stepper';
+export * from './lib/stepper/step';
 export * from './lib/stepper/stepper.module';

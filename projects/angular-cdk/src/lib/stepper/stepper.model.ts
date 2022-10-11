@@ -1,7 +1,7 @@
-import { StriveCdkStep } from './step.component';
+import { StriveCdkStep } from './step';
 
 /** Change event emitted when the selected step changes. */
-export interface StepperSelectionEvent {
+export interface StepChangeEvent {
   selectedStepIndex: number;
   previousStepIndex: number;
   selectedStep: StriveCdkStep;
