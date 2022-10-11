@@ -13,10 +13,6 @@ const routes: Routes = [
   },
   { path: 'directives',
     loadChildren: () => import('./directives/directives.module').then(m => m.DirectivesModule)
-  },
-  {
-    path: 'stepper',
-    loadChildren: () => import('./stepper/stepper.module').then(m => m.PlaygroundStepperModule)
   }
 ];
 

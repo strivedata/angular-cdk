@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Stepper } from './stepper.directive';
-import { StepComponent } from './step.component';
+import { StriveCdkStepper } from './stepper.directive';
+import { StriveCdkStep } from './step.component';
 
 
 @NgModule({
   declarations: [
-    Stepper,
-    StepComponent
+    StriveCdkStepper,
+    StriveCdkStep
   ],
   exports: [
-    Stepper,
-    StepComponent
+    StriveCdkStepper,
+    StriveCdkStep
   ],
   imports: [
     CommonModule

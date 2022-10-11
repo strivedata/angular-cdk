@@ -11,11 +11,13 @@ import {
   TabsModule,
   ToggleSelectModule
 } from '@strivestudio/angular-cdk';
+import { StepperComponent } from './stepper/stepper.component';
 
 
 @NgModule({
   declarations: [
-    DirectivesComponent
+    DirectivesComponent,
+    StepperComponent
   ],
   imports: [
     CommonModule,

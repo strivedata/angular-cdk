@@ -1,20 +1,24 @@
 import { Component, Input, OnInit, TemplateRef, ViewChild, forwardRef, Inject, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
-import { Stepper } from './stepper.directive';
+import { StriveCdkStepper } from './stepper.directive';
 
 @Component({
-  selector: 'step',
-  template: '<ng-template><ng-content></ng-content></ng-template>',
+  selector: 'scdk-step',
+  template: `
+    <ng-template>
+      <ng-content></ng-content>
+    </ng-template>
+  `,
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class StepComponent implements OnInit {
+export class StriveCdkStep implements OnInit {
 
   @ViewChild(TemplateRef, { static: true }) content: TemplateRef<any> | null = null;
 
   @Input() state: any;
 
   constructor(
-    
+
   ) { }
 
   ngOnInit(): void { }
