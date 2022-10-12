@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { StriveCdkStepper } from './stepper';
 import { AbstractControl } from '@angular/forms';
+import { StepperState } from './stepper.model';
 
 @Component({
   selector: 'scdk-step',
@@ -43,6 +44,11 @@ export class StriveCdkStep implements OnInit {
 
   /** Abstract control of the step. Used to link it's completed state with an instance of AbstractControl. */
   @Input() stepControl: AbstractControl | undefined | null;
+
+  /** Returns the current state of the stepper in the precedence: selected -> completed -> open. */
+  get state(): StepperState {
+    return this.isSelected ? 'selected' : (this.completed ? 'completed' : 'open');
+  }
 
   /** Returns true, if this step is the currently selected step. */
   get isSelected(): boolean {
