@@ -41,7 +41,7 @@ export class StriveCdkStep implements OnInit {
 
   private _completed = false;
 
-  /** Abstract control of the step. */
+  /** Abstract control of the step. Used to link it's completed state with an instance of AbstractControl. */
   @Input() stepControl: AbstractControl | undefined | null;
 
   /** Returns true, if this step is the currently selected step. */

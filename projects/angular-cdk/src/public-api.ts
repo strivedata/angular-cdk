@@ -27,4 +27,5 @@ export * from './lib/tabs/tabs.module';
 // Stepper Module
 export * from './lib/stepper/stepper';
 export * from './lib/stepper/step';
+export * from './lib/stepper/stepper-buttons';
 export * from './lib/stepper/stepper.module';

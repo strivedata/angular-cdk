@@ -80,7 +80,8 @@
       <ng-container [ngTemplateOutlet]="stepper.selectedStep ? stepper.selectedStep.content : null"></ng-container>
     </div>
 
-    <div (click)="stepper.next()">Next</div>
+    <button scdkStepperPrevious>Previous</button>
+    <button scdkStepperNext>Next</button>
 
   </scdk-stepper>
 
