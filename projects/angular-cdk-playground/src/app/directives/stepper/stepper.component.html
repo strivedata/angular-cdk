@@ -3,13 +3,11 @@
   <div *ngFor="let step of steps; index as i" [ngClass]="step.isSelected ? 'font-bold' : 'font-normal'">Step {{ step.label || i + 1 }}</div>
 </div>
 
-<ng-template #default></ng-template>
-
 <!-- Body -->
 <div id="content">
 
   <!-- Outlet to display selected step -->
-  <ng-container [ngTemplateOutlet]="selectedStep?.content || default"></ng-container>
+  <ng-container [ngTemplateOutlet]="selectedStep ? selectedStep.content : null"></ng-container>
 
 </div>
 

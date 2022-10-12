@@ -8,6 +8,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 import { StriveCdkStepper } from './stepper';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'scdk-step',
@@ -22,14 +23,28 @@ import { StriveCdkStepper } from './stepper';
 })
 export class StriveCdkStep implements OnInit {
 
+  /** Template ref that holds the injected contents of the step. */
   @ViewChild(TemplateRef, { static: true }) content: TemplateRef<any> | null = null;
 
-  @Input() state: any;
-
+  /** Optional text label for this step. */
   @Input() label: string | undefined;
 
-  @Input() completed = false;
+  /** True, if this step is marked as completed. */
+  @Input() get completed(): boolean {
+    return this.stepControl ? this.stepControl.valid : this._completed;
+  };
 
+  /** Marks this step as completed. */
+  set completed(status: boolean) {
+    this._completed = status;
+  }
+
+  private _completed = false;
+
+  /** Abstract control of the step. */
+  @Input() stepControl: AbstractControl | undefined | null;
+
+  /** Returns true, if this step is the currently selected step. */
   get isSelected(): boolean {
     return this.stepper.selectedStep === this;
   }
@@ -45,10 +60,16 @@ export class StriveCdkStep implements OnInit {
     this.stepper.selectedStep = this;
   }
 
+  /**
+   * Resets this step to it's initial state, marking it uncompleted.
+   */
   reset(): void {
     this.completed = false;
   }
 
+  /**
+   * Mark this step as completed.
+   */
   complete(): void {
     this.completed = true;
   }

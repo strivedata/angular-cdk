@@ -1,10 +1,10 @@
 import {
-  ChangeDetectionStrategy,
-  Component, ContentChildren,
-  Directive, EventEmitter, forwardRef, Inject,
-  Input, OnInit, Output,
-  QueryList, TemplateRef, ViewChild,
-  ViewChildren, ViewEncapsulation
+  ContentChildren,
+  Directive,
+  EventEmitter,
+  Input,
+  Output,
+  QueryList
 } from '@angular/core';
 import { StepChangeEvent } from './stepper.model';
 import { StriveCdkStep } from './step';
@@ -18,6 +18,9 @@ export class StriveCdkStepper {
   /** List of all steps for this stepper that are contained in the component's template. */
   @ContentChildren(StriveCdkStep) steps!: QueryList<StriveCdkStep>;
 
+  /** If true, requires the user to complete previous steps before proceeding. */
+  @Input() linear = false;
+
   /** Returns component of the selected step. */
   @Input() get selectedStep(): StriveCdkStep | undefined {
     return this.steps ? this.steps.toArray()[this.selectedStepIndex] : undefined;
@@ -28,6 +31,7 @@ export class StriveCdkStepper {
     this.selectedStepIndex = step ? this.steps.toArray().indexOf(step) : -1;
   }
 
+  /** The index of the currently selected step. */
   private _selectedStepIndex = 0;
 
   /** Returns the index of the currently selected step. */
@@ -36,8 +40,8 @@ export class StriveCdkStepper {
   }
 
   /**
-   *  Sets the index for the selected step and selects this as the new selected step.
-   * @param newIndex
+   * Sets the index for the selected step and selects this as the new selected step.
+   * @param newIndex - The index of the step to be selected.
    */
   set selectedStepIndex(newIndex: number) {
     if (this.steps) {
@@ -45,7 +49,7 @@ export class StriveCdkStepper {
         // ensure we can't select steps that don't exist
         throw Error('[StriveCdkStepper]: Cannot assign out-of-bounds index.');
       }
-      if (newIndex !== this._selectedStepIndex) {
+      if (newIndex !== this._selectedStepIndex && this.allStepsUpToIndexCompleted(newIndex)) {
         this.selectStepAtIndex(newIndex);
       }
     } else {
@@ -93,6 +97,23 @@ export class StriveCdkStepper {
       previousStep: stepsArray[this._selectedStepIndex]
     });
     this._selectedStepIndex = newIndex;
+  }
+
+  /**
+   * Returns true if all steps up to the given index are marked completed.
+   * @param index - The index up to which to check the steps.
+   * @private
+   */
+  private allStepsUpToIndexCompleted(index: number): boolean {
+    if (!this.linear) {
+      return true;
+    }
+    // if linear mode is enabled, check if any steps before the given index have not been completed
+    return this.steps
+      .toArray()
+      .slice(0, index)
+      .filter(step => !step.completed)
+      .length === 0;
   }
 
   /**

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-directives',
@@ -13,11 +13,23 @@ export class DirectivesComponent implements OnInit {
 
   form: FormGroup;
 
+  get stepperForm(): AbstractControl | null {
+    return this.form.get('steps');
+  }
+
   constructor(formBuilder: FormBuilder) {
     this.form = formBuilder.group({
       singleSelectValue: null,
       multiSelectValue: null,
-      selectedTab: 2
+      selectedTab: 2,
+      steps: formBuilder.array([
+        formBuilder.group({
+          name: [null, Validators.required]
+        }),
+        formBuilder.group({
+          address: [null]
+        })
+      ])
     });
     // Log form changes
     this.form.valueChanges.subscribe(next => {
