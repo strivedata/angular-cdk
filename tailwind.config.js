@@ -75,18 +75,17 @@ module.exports = {
         900: "#1b1a27"
       },
       'neutral': {
-        DEFAULT: '#FFFFFF',
-        50: '#FFFFFF',
-        100: '#FAFBFC',
+        DEFAULT: '#FFFFFF', // always the source color!
+        50: '#FFFFFF', // bg-shade-1
+        100: '#FAFBFC', // bg-shade-2
         200: '#F4F5F7',
-        300: '#C2C5CC',
+        300: '#C2C5CC', // text-nonessential
         400: '#ACB0BA',
-        500: '#969BA7',
+        500: '#969BA7', // text-subtle, bg-shade-3 (buttons & co)
         600: '#515761',
         700: '#383C43',
-        800: '#383C43', // default text color, shade-1 in dark mode
-        900: '#1E2024',
-        1000: '#050506'
+        800: '#383C43', // text-neutral
+        900: '#1E2024' // text-strong
       },
       'info': {
         DEFAULT: '#5486c1',

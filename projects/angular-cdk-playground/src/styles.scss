@@ -111,6 +111,30 @@ section {
 .border-rank-2 { }
 .border-rank-3 { }
 
+.bg-neutral-dark {
+  @apply bg-neutral-700;
+}
+
+.bg-neutral {
+  @apply bg-neutral-500;
+}
+
+.bg-neutral-light {
+  @apply bg-neutral-100;
+}
+
+.text-neutral-light {
+  @apply text-neutral-800;
+}
+
+.text-neutral {
+  @apply text-neutral-800;
+}
+
+.text-neutral-dark {
+  @apply text-neutral-900;
+}
+
 .card {
 
   @apply flex flex-col bg-white border border-neutral shadow-sm rounded;
