@@ -77,10 +77,23 @@ export class StriveCdkStepper {
   }
 
   /**
+   * Sets the given step as the selected step.
+   * @param step - The step to be selected.
+   */
+  select(step: StriveCdkStep | number): void {
+    if (step instanceof StriveCdkStep) {
+      this.selectedStep = step;
+    } else {
+      this.selectedStepIndex = step;
+    }
+  }
+
+  /**
    * Resets the stepper to it's initial state.
    */
   reset(): void {
     this.selectedStepIndex = 0;
+    this.resetAllSteps();
   }
 
   /**
@@ -114,6 +127,14 @@ export class StriveCdkStepper {
       .slice(0, index)
       .filter(step => !step.completed)
       .length === 0;
+  }
+
+  /**
+   * Calls each step to reset it's initial state.
+   * @private
+   */
+  private resetAllSteps(): void {
+    this.steps.forEach(step => step.reset());
   }
 
   /**

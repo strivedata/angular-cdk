@@ -4,7 +4,7 @@ import { StriveCdkStepper } from '@strivestudio/angular-cdk';
 @Component({
   selector: 'app-stepper',
   templateUrl: './stepper.component.html',
-  providers: [{provide: StriveCdkStepper, useExisting: StepperComponent }],
+  providers: [{ provide: StriveCdkStepper, useExisting: StepperComponent }],
 })
 export class StepperComponent extends StriveCdkStepper implements OnInit {
 

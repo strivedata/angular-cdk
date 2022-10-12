@@ -70,19 +70,25 @@
   </div>
 
   <scdk-stepper #stepper="scdkStepper" [linear]="true" formArrayName="steps">
+
+    <!-- Header -->
     <div class="flex">
       <div *ngFor="let step of stepper.steps; index as i">{{ step.label || 'Step ' + (i + 1) }} ({{ step.state }})</div>
     </div>
+
+    <!-- Steps -->
     <scdk-step formGroupName="0" [stepControl]="stepperForm">
       Name: <input type="text" formControlName="name">
     </scdk-step>
     <scdk-step>Content Step 1</scdk-step>
     <scdk-step>Content Step 2</scdk-step>
 
+    <!-- Selected Step Content -->
     <div [ngClass]="{ 'opacity-50': stepper.selectedStep?.completed }">
       <ng-container [ngTemplateOutlet]="stepper.selectedStep ? stepper.selectedStep.content : null"></ng-container>
     </div>
 
+    <!-- Buttons -->
     <button scdkStepperPrevious>Previous</button>
     <button scdkStepperNext>Next</button>
 
