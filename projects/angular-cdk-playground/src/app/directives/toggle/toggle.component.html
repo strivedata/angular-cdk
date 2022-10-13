@@ -1,0 +1,14 @@
+<div class="space-y-4">
+
+  <!-- Template Toggle -->
+  <div>
+    <button uixToggle [checked]="switchValue" (checkedChange)="switchValue = $event">Toggle: {{ switchValue }}</button>
+  </div>
+
+  <!-- Custom Toggle -->
+  <div>
+    <app-custom-toggle></app-custom-toggle>
+  </div>
+
+
+</div>

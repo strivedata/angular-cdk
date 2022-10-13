@@ -6,26 +6,20 @@ import { DirectivesComponent } from './directives.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
   MultiSelectModule,
-  SingleSelectModule,
-  ToggleSelectModule,
-  UIXStepperModule
+  SingleSelectModule
 } from '@strivestudio/angular-cdk';
-import { StepperComponent } from './stepper/stepper.component';
 
 
 @NgModule({
   declarations: [
-    DirectivesComponent,
-    StepperComponent
+    DirectivesComponent
   ],
   imports: [
     CommonModule,
     DirectivesRoutingModule,
     ReactiveFormsModule,
-    ToggleSelectModule,
     SingleSelectModule,
-    MultiSelectModule,
-    UIXStepperModule
+    MultiSelectModule
   ]
 })
 export class DirectivesModule { }

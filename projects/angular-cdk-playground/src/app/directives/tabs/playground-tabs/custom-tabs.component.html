@@ -1,0 +1,17 @@
+<div>
+
+  <!-- Header -->
+  <div class="flex">
+    <button
+      *ngFor="let tab of tabs; index as i"
+      [uixTabSelect]="i"
+      [ngClass]="{ 'opacity-50': tab.disabled, 'font-bold': tab.isSelected }"
+      class="underline mr-2">
+        {{ tab.label || 'Tab' }}
+    </button>
+  </div>
+
+  <!-- Selected Panel -->
+  <ng-container [ngTemplateOutlet]="selectedTab ? selectedTab.content : null"></ng-container>
+
+</div>

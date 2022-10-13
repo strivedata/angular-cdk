@@ -1,12 +1,48 @@
+<div class="flex p-4 min-h-screen">
+
+  <!-- Sidebar Nav -->
+  <div class="w-1/6 min-h-full border-r border-neutral-300">
+    <h1 class="text-lg font-bold">UI Extensions</h1>
+
+    <div class="space-y-1/2 my-2">
+      <h2 class="text-neutral-300">Selection</h2>
+      <ul>
+        <li><a routerLink="/directives/toggle" [routerLinkActive]="['font-bold']" class="text-primary-800 underline">Toggle</a></li>
+        <li><a routerLink="single-select" [routerLinkActive]="['font-bold']" class="text-primary-800 underline">Picker</a></li>
+      </ul>
+    </div>
+
+    <div class="space-y-1/2 my-2">
+      <h2 class="text-neutral-300">Navigation</h2>
+      <ul>
+        <li><a routerLink="/directives/tabs" [routerLinkActive]="['font-bold']" class="text-primary-800 underline">Tabs</a></li>
+        <li><a routerLink="/directives/accordion" [routerLinkActive]="['font-bold']" class="text-primary-800 underline">Accordion</a></li>
+        <li><a routerLink="/directives/stepper" [routerLinkActive]="['font-bold']" class="text-primary-800 underline">Stepper</a></li>
+      </ul>
+    </div>
+
+    <div class="space-y-1/2 my-2">
+      <h2 class="text-neutral-300">Overlay</h2>
+      <ul>
+        <li><a routerLink="/directives/tabs" [routerLinkActive]="['font-bold']" class="text-primary-800 underline">Modal</a></li>
+        <li><a routerLink="/directives/accordion" [routerLinkActive]="['font-bold']" class="text-primary-800 underline">Accordion</a></li>
+        <li><a routerLink="/directives/stepper" [routerLinkActive]="['font-bold']" class="text-primary-800 underline">Stepper</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Content -->
+  <div class="flex-1 px-4">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+
+
 <form [formGroup]="form" class="p-l space-y-m">
 
   <h1 class="text-headline-page text-neutral-1000">Strive Angular CDK</h1>
-
-  <!-- Toggle Select -->
-  <div>
-    <h1 class="font-bold text-xl text-neutral-600 pb-s">Toggle-Select (Switch)</h1>
-    <button toggleSelect [checked]="switchValue" (checkedChange)="switchValue = $event">Toggle: {{ switchValue }}</button>
-  </div>
 
   <!-- Single Select -->
   <div>
@@ -52,39 +88,4 @@
     </div>
   </div>
 
-  <uix-stepper #stepper="uixStepper" [linear]="true" formArrayName="steps">
-
-    <!-- Header -->
-    <div class="flex">
-      <div *ngFor="let step of stepper.steps; index as i" [uixStepperSelect]="stepper.steps.get(i)">{{ step.label || 'Step ' + (i + 1) }} ({{ step.state }})</div>
-    </div>
-
-    <!-- Steps -->
-    <uix-step formGroupName="0" [stepControl]="stepperForm">
-      Name: <input type="text" formControlName="name">
-    </uix-step>
-    <uix-step>Content Step 1</uix-step>
-    <uix-step>Content Step 2</uix-step>
-
-    <!-- Selected Step Content -->
-    <div [ngClass]="{ 'opacity-50': stepper.selectedStep?.completed }">
-      <ng-container [ngTemplateOutlet]="stepper.selectedStep ? stepper.selectedStep.content : null"></ng-container>
-    </div>
-
-    <!-- Buttons -->
-    <div>
-      <button uixStepperPrevious>Previous</button>
-      <button uixStepperNext>Next</button>
-    </div>
-
-  </uix-stepper>
-
 </form>
-
-<app-stepper>
-  <uix-step [label]="'step x'">Content Step 0</uix-step>
-  <uix-step>Content Step 1</uix-step>
-  <uix-step>Content Step 2</uix-step>
-</app-stepper>
-
-<router-outlet></router-outlet>

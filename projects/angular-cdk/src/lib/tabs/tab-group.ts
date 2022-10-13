@@ -69,7 +69,7 @@ export class UIXTabGroup implements AfterContentInit {
    * @param index - Index of the tab to be selected.
    */
   selectTab(index: number) {
-    this.selectTabAtIndex(index);
+    this.selectedTabIndex = index;
   }
 
   /**

@@ -1,0 +1,26 @@
+<div class="space-y-1">
+
+  <!-- Header -->
+  <div class="flex">
+    <button
+      *ngFor="let step of steps; index as i"
+      class="mr-1"
+      [uixStepperSelect]="i">
+      <span class="underline mr-1" [ngClass]="step.isSelected ? 'font-bold' : 'font-normal'">{{ step.label || 'Step '  + (i + 1) }}</span>
+      <span *ngIf="!step.isLastStep" class="text-neutral-500"> > </span>
+    </button>
+  </div>
+
+  <!-- Body -->
+  <div id="content">
+    <!-- Outlet to display selected step -->
+    <ng-container [ngTemplateOutlet]="selectedStep ? selectedStep.content : null"></ng-container>
+  </div>
+
+  <!-- Footer -->
+  <div class="space-x-1">
+    <button uixStepperPrevious>Previous</button>
+    <button uixStepperNext>Next</button>
+  </div>
+
+</div>

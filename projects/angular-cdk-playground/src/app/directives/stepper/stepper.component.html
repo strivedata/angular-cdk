@@ -1,18 +1,53 @@
-<!-- Header -->
-<div class="flex">
-  <div *ngFor="let step of steps; index as i" [ngClass]="step.isSelected ? 'font-bold' : 'font-normal'">Step {{ step.label || i + 1 }}</div>
-</div>
+<div class="space-y-4">
 
-<!-- Body -->
-<div id="content">
+  <!-- Template Stepper -->
+  <div>
 
-  <!-- Outlet to display selected step -->
-  <ng-container [ngTemplateOutlet]="selectedStep ? selectedStep.content : null"></ng-container>
+    <form [formGroup]="form">
+      <uix-stepper #stepper="uixStepper" [linear]="true" formArrayName="steps" class="space-y-1">
 
-</div>
+        <!-- Header -->
+        <div class="flex">
+          <button *ngFor="let step of stepper.steps; index as i" [uixStepperSelect]="stepper.steps.get(i)" class="mr-2" [ngClass]="{ 'font-bold': step.isSelected }">{{ step.label || 'Step ' + (i + 1) }} ({{ step.state }})</button>
+        </div>
 
-<!-- Footer -->
-<div>
-  <button (click)="previous()">Previous Step</button>
-  <button (click)="next()">Next Step</button>
+        <!-- Steps -->
+        <uix-step formGroupName="0" [stepControl]="stepperForm">
+          <span>Enter your name:</span>
+          <input type="text" class="bg-neutral-shade-2 p-1/2 rounded" formControlName="name">
+        </uix-step>
+        <uix-step #step1>
+          <div>Nice, {{ name }}.</div>
+          <button (click)="step1.completed = true" class="underline">Click here, to complete this step.</button>
+        </uix-step>
+        <uix-step>
+          <div>Cool. You are almost done. Just complete this last step.</div>
+        </uix-step>
+
+        <!-- Selected Step Content -->
+        <div>
+          <ng-container [ngTemplateOutlet]="stepper.selectedStep ? stepper.selectedStep.content : null"></ng-container>
+        </div>
+
+        <!-- Buttons -->
+        <div class="space-x-1">
+          <button uixStepperPrevious>Previous</button>
+          <button uixStepperNext *ngIf="!stepper.selectedStep?.isLastStep" [ngClass]="{ 'opacity-50': !stepper.selectedStep?.completed }">Next</button>
+        </div>
+
+      </uix-stepper>
+    </form>
+
+  </div>
+
+  <!-- Custom Stepper -->
+  <div>
+    <app-custom-stepper>
+      <uix-step label="Start">Hello, let's get started.</uix-step>
+      <uix-step label="Middle">This is the middle.</uix-step>
+      <uix-step label="End">And this is the end.</uix-step>
+    </app-custom-stepper>
+  </div>
+
+
 </div>

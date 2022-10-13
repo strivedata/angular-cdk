@@ -97,6 +97,15 @@ export class UIXStepper implements AfterContentInit {
     }
   }
 
+  /** Marks the given step as completed. */
+  complete(step: UIXStep | number): void {
+    if (step instanceof UIXStep) {
+      this.steps.find((s) => s === step)?.complete();
+    } else {
+      this.steps.get(step)?.complete();
+    }
+  }
+
   /**
    * Resets the stepper to it's initial state.
    */

@@ -2,17 +2,22 @@ import { Directive, EventEmitter, HostListener, Input, Output } from '@angular/c
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Directive({
-  selector: '[toggleSelect]',
+  selector: '[uixToggle]',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: ToggleSelectDirective,
+    useExisting: UIXToggle,
     multi: true
   }]
 })
-export class ToggleSelectDirective implements ControlValueAccessor {
+export class UIXToggle implements ControlValueAccessor {
 
+  /** Whether the toggle is checked. */
   @Input() checked = false;
+
+  /** Whether the toggle is disabled. */
   @Input() disabled = false;
+
+  /** Emits the new state whenever it changes. */
   @Output() checkedChange = new EventEmitter<boolean>();
 
   private onChange = (value: boolean) => {};

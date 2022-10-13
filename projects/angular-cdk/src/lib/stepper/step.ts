@@ -51,6 +51,16 @@ export class UIXStep implements OnInit {
     return this.stepper.selectedStep === this;
   }
 
+  /** Return true, if this step is the last step of the stepper. */
+  get isLastStep(): boolean {
+    return this === this.stepper.steps.last;
+  }
+
+  /** Returns true, if this is the first step of the stepper. */
+  get isFirstStep(): boolean {
+    return this === this.stepper.steps.first;
+  }
+
   constructor(private stepper: UIXStepper) { }
 
   ngOnInit(): void { }
