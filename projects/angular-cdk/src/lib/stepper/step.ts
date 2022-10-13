@@ -14,11 +14,7 @@ import { StepperState } from './stepper.model';
 @Component({
   selector: 'scdk-step',
   exportAs: 'scdkStep',
-  template: `
-    <ng-template>
-      <ng-content></ng-content>
-    </ng-template>
-  `,
+  template: `<ng-template><ng-content></ng-content></ng-template>`,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })

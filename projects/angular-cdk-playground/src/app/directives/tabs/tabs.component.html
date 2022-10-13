@@ -1,0 +1,22 @@
+<div uixTabGroup #tabGroup="uixTabGroup">
+
+  <!-- Header -->
+  <div class="flex">
+    <div *ngFor="let tab of tabGroup.tabs; index as i" class="underline mr-2" [uixTabSelect]="i" [ngClass]="{ 'opacity-50': tab.disabled, 'font-bold': tab.isSelected }">{{ tab.label || 'Tab' }}</div>
+  </div>
+
+  <!-- Tab Panels -->
+  <uix-tab label="First Tab">Tab 1</uix-tab>
+  <uix-tab label="Second Tab">Tab 2</uix-tab>
+  <uix-tab label="Third Tab" [disabled]="true">Tab 3</uix-tab>
+
+  <!-- Selected Panel -->
+  <ng-container [ngTemplateOutlet]="tabGroup.selectedTab ? tabGroup.selectedTab.content : null"></ng-container>
+
+</div>
+
+<app-playground-tabs>
+  <uix-tab label="First Tab">Tab 1</uix-tab>
+  <uix-tab label="Second Tab">Tab 2</uix-tab>
+  <uix-tab label="Third Tab" [disabled]="true">Tab 3</uix-tab>
+</app-playground-tabs>

@@ -22,6 +22,9 @@ export * from './lib/tabs/tab.directive';
 export * from './lib/tabs/tab-panel.directive';
 export * from './lib/tabs/tab-panels.directive';
 export * from './lib/tabs/tab-list.directive';
+export * from './lib/tabs/tab-group';
+export * from './lib/tabs/tab';
+export * from './lib/tabs/tab-select';
 export * from './lib/tabs/tabs.module';
 
 // Stepper Module

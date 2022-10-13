@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StriveCdkStepper } from './stepper';
 import { StriveCdkStep } from './step';
-import { StriveCdkStepperNext, StriveCdkStepperPrevious } from './stepper-buttons';
+import { StriveCdkStepperLabel, StriveCdkStepperNext, StriveCdkStepperPrevious } from './stepper-buttons';
 
 
 @NgModule({
@@ -10,13 +10,15 @@ import { StriveCdkStepperNext, StriveCdkStepperPrevious } from './stepper-button
     StriveCdkStep,
     StriveCdkStepper,
     StriveCdkStepperNext,
-    StriveCdkStepperPrevious
+    StriveCdkStepperPrevious,
+    StriveCdkStepperLabel
   ],
   exports: [
     StriveCdkStep,
     StriveCdkStepper,
     StriveCdkStepperNext,
-    StriveCdkStepperPrevious
+    StriveCdkStepperPrevious,
+    StriveCdkStepperLabel
   ],
   imports: [
     CommonModule

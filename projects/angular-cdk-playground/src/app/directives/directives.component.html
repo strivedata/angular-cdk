@@ -52,28 +52,11 @@
     </div>
   </div>
 
-  <!-- Tabs -->
-  <div>
-    <h1 class="text-headline-section text-neutral-600 pb-s">Tab Navigation</h1>
-    <div tabGroup formControlName="selectedTab">
-      <div tabList class="flex space-x-l">
-        <div *tab="let tab" [ngClass]="{ 'font-bold': tab.selected }">Tab 1</div>
-        <div *tab="let tab" [ngClass]="{ 'font-bold': tab.selected }">Tab 2</div>
-        <div *tab="let tab" [ngClass]="{ 'font-bold': tab.selected }">Tab 3</div>
-      </div>
-      <div tabPanels>
-        <div *tabPanel></div>
-        <div *tabPanel>Panel 2</div>
-        <div *tabPanel>Panel 3</div>
-      </div>
-    </div>
-  </div>
-
   <scdk-stepper #stepper="scdkStepper" [linear]="true" formArrayName="steps">
 
     <!-- Header -->
     <div class="flex">
-      <div *ngFor="let step of stepper.steps; index as i">{{ step.label || 'Step ' + (i + 1) }} ({{ step.state }})</div>
+      <div *ngFor="let step of stepper.steps; index as i" [scdkStepperSelect]="stepper.steps.get(i)">{{ step.label || 'Step ' + (i + 1) }} ({{ step.state }})</div>
     </div>
 
     <!-- Steps -->
@@ -89,8 +72,10 @@
     </div>
 
     <!-- Buttons -->
-    <button scdkStepperPrevious>Previous</button>
-    <button scdkStepperNext>Next</button>
+    <div>
+      <button scdkStepperPrevious>Previous</button>
+      <button scdkStepperNext>Next</button>
+    </div>
 
   </scdk-stepper>
 

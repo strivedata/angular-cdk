@@ -5,7 +5,8 @@ import { StepperComponent } from './stepper/stepper.component';
 
 const routes: Routes = [
   { path: '', component: DirectivesComponent },
-  { path: 'stepper', component: StepperComponent }
+  { path: 'stepper', component: StepperComponent },
+  { path: 'tabs', loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsModule) }
 ];
 
 @NgModule({

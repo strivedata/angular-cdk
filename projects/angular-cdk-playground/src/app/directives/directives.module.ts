@@ -8,7 +8,6 @@ import {
   MultiSelectModule,
   SingleSelectModule,
   StepperModule,
-  TabsModule,
   ToggleSelectModule
 } from '@strivestudio/angular-cdk';
 import { StepperComponent } from './stepper/stepper.component';
@@ -26,7 +25,6 @@ import { StepperComponent } from './stepper/stepper.component';
     ToggleSelectModule,
     SingleSelectModule,
     MultiSelectModule,
-    TabsModule,
     StepperModule
   ]
 })
