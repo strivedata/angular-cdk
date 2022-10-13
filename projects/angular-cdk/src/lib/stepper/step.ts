@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { StriveCdkStepper } from './stepper';
 import { AbstractControl } from '@angular/forms';
-import { StepperState } from './stepper.model';
+import { StepperState } from './stepper-models';
 
 @Component({
   selector: 'scdk-step',

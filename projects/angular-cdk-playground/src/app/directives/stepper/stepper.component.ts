@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { StriveCdkStepper } from '@strivestudio/angular-cdk';
 
 @Component({
@@ -6,13 +6,10 @@ import { StriveCdkStepper } from '@strivestudio/angular-cdk';
   templateUrl: './stepper.component.html',
   providers: [{ provide: StriveCdkStepper, useExisting: StepperComponent }]
 })
-export class StepperComponent extends StriveCdkStepper implements OnInit {
+export class StepperComponent extends StriveCdkStepper {
 
-  constructor() {
-    super();
-    this.selectedStepChange.subscribe(next => console.log(next));
+  constructor(changeDetectorRef: ChangeDetectorRef) {
+    super(changeDetectorRef);
   }
-
-  ngOnInit(): void { }
 
 }

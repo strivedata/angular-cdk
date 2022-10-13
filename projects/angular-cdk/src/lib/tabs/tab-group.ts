@@ -1,4 +1,13 @@
-import { ContentChildren, Directive, EventEmitter, Input, Output, QueryList } from '@angular/core';
+import {
+  AfterContentInit,
+  ChangeDetectorRef,
+  ContentChildren,
+  Directive,
+  EventEmitter,
+  Input,
+  Output,
+  QueryList
+} from '@angular/core';
 import { UIXTab } from './tab';
 import { TabChangeEvent } from './tab-models';
 
@@ -6,7 +15,7 @@ import { TabChangeEvent } from './tab-models';
   selector: '[uixTabGroup],uix-tab-group',
   exportAs: 'uixTabGroup'
 })
-export class UIXTabGroup {
+export class UIXTabGroup implements AfterContentInit {
 
   /** List of all tabs for this group. */
   @ContentChildren(UIXTab) tabs!: QueryList<UIXTab>;
@@ -48,7 +57,12 @@ export class UIXTabGroup {
   /** Emitted when the selected tab has changed. */
   @Output() readonly selectedTabChange = new EventEmitter<TabChangeEvent>();
 
-  constructor() { }
+  constructor(private changeDetectorRef: ChangeDetectorRef) { }
+
+  ngAfterContentInit() {
+    // as tabs get projected into the group, we have to make sure change detection works correctly
+    this.changeDetectorRef.detectChanges();
+  }
 
   /**
    * Selects the tab at the given index.

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { UIXTabGroup } from '@strivestudio/angular-cdk';
 
 @Component({
@@ -8,8 +8,8 @@ import { UIXTabGroup } from '@strivestudio/angular-cdk';
 })
 export class PlaygroundTabsComponent extends UIXTabGroup implements OnInit {
 
-  constructor() {
-    super();
+  constructor(changeDetectorRef: ChangeDetectorRef) {
+    super(changeDetectorRef);
   }
 
   ngOnInit(): void { }

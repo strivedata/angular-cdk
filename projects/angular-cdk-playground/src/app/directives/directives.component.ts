@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-directives',
   templateUrl: './directives.component.html'
 })
-export class DirectivesComponent implements OnInit {
+export class DirectivesComponent {
 
   switchValue: boolean = false;
   singleSelectValue: string | undefined;
@@ -37,7 +37,5 @@ export class DirectivesComponent implements OnInit {
       console.log('Valid:', this.form.valid);
     })
   }
-
-  ngOnInit(): void { }
 
 }

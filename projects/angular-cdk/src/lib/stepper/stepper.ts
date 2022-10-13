@@ -1,4 +1,6 @@
 import {
+  AfterContentInit,
+  ChangeDetectorRef,
   ContentChildren,
   Directive,
   EventEmitter,
@@ -6,14 +8,14 @@ import {
   Output,
   QueryList
 } from '@angular/core';
-import { StepChangeEvent } from './stepper.model';
+import { StepChangeEvent } from './stepper-models';
 import { StriveCdkStep } from './step';
 
 @Directive({
   selector: '[scdkStepper],scdk-stepper',
   exportAs: 'scdkStepper'
 })
-export class StriveCdkStepper {
+export class StriveCdkStepper implements AfterContentInit {
 
   /** List of all steps for this stepper that are contained in the component's template. */
   @ContentChildren(StriveCdkStep) steps!: QueryList<StriveCdkStep>;
@@ -61,6 +63,13 @@ export class StriveCdkStepper {
 
   /** Emitted when the selected step has changed. */
   @Output() readonly selectedStepChange = new EventEmitter<StepChangeEvent>();
+
+  constructor(private changeDetectorRef: ChangeDetectorRef) { }
+
+  ngAfterContentInit() {
+    // as steps get projected into the stepper, we have to make sure change detection works correctly
+    this.changeDetectorRef.detectChanges();
+  }
 
   /**
    * Selects the step at the index after the currently selected step.

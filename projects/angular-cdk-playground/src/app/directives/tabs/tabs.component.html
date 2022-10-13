@@ -10,7 +10,7 @@
   <uix-tab label="Second Tab">Tab 2</uix-tab>
   <uix-tab label="Third Tab" [disabled]="true">Tab 3</uix-tab>
 
-  <!-- Selected Panel -->
+  <!-- Selected Tab Panel -->
   <ng-container [ngTemplateOutlet]="tabGroup.selectedTab ? tabGroup.selectedTab.content : null"></ng-container>
 
 </div>

@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component
+} from '@angular/core';
 
 @Component({
   selector: 'app-tabs',
-  templateUrl: './tabs.component.html'
+  templateUrl: './tabs.component.html',
+  changeDetection: ChangeDetectionStrategy.Default
 })
-export class TabsComponent implements OnInit {
+export class TabsComponent {
 
   constructor() { }
-
-  ngOnInit(): void { }
 
 }
