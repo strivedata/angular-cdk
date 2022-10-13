@@ -7,8 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {
   MultiSelectModule,
   SingleSelectModule,
-  StepperModule,
-  ToggleSelectModule
+  ToggleSelectModule,
+  UIXStepperModule
 } from '@strivestudio/angular-cdk';
 import { StepperComponent } from './stepper/stepper.component';
 
@@ -25,7 +25,7 @@ import { StepperComponent } from './stepper/stepper.component';
     ToggleSelectModule,
     SingleSelectModule,
     MultiSelectModule,
-    StepperModule
+    UIXStepperModule
   ]
 })
 export class DirectivesModule { }

@@ -52,19 +52,19 @@
     </div>
   </div>
 
-  <scdk-stepper #stepper="scdkStepper" [linear]="true" formArrayName="steps">
+  <uix-stepper #stepper="uixStepper" [linear]="true" formArrayName="steps">
 
     <!-- Header -->
     <div class="flex">
-      <div *ngFor="let step of stepper.steps; index as i" [scdkStepperSelect]="stepper.steps.get(i)">{{ step.label || 'Step ' + (i + 1) }} ({{ step.state }})</div>
+      <div *ngFor="let step of stepper.steps; index as i" [uixStepperSelect]="stepper.steps.get(i)">{{ step.label || 'Step ' + (i + 1) }} ({{ step.state }})</div>
     </div>
 
     <!-- Steps -->
-    <scdk-step formGroupName="0" [stepControl]="stepperForm">
+    <uix-step formGroupName="0" [stepControl]="stepperForm">
       Name: <input type="text" formControlName="name">
-    </scdk-step>
-    <scdk-step>Content Step 1</scdk-step>
-    <scdk-step>Content Step 2</scdk-step>
+    </uix-step>
+    <uix-step>Content Step 1</uix-step>
+    <uix-step>Content Step 2</uix-step>
 
     <!-- Selected Step Content -->
     <div [ngClass]="{ 'opacity-50': stepper.selectedStep?.completed }">
@@ -73,18 +73,18 @@
 
     <!-- Buttons -->
     <div>
-      <button scdkStepperPrevious>Previous</button>
-      <button scdkStepperNext>Next</button>
+      <button uixStepperPrevious>Previous</button>
+      <button uixStepperNext>Next</button>
     </div>
 
-  </scdk-stepper>
+  </uix-stepper>
 
 </form>
 
 <app-stepper>
-  <scdk-step [label]="'step x'">Content Step 0</scdk-step>
-  <scdk-step>Content Step 1</scdk-step>
-  <scdk-step>Content Step 2</scdk-step>
+  <uix-step [label]="'step x'">Content Step 0</uix-step>
+  <uix-step>Content Step 1</uix-step>
+  <uix-step>Content Step 2</uix-step>
 </app-stepper>
 
 <router-outlet></router-outlet>

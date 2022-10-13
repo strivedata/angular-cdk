@@ -1,53 +1,53 @@
 import { Directive, Input } from '@angular/core';
 
-import { StriveCdkStepper } from './stepper';
-import { StriveCdkStep } from './step';
+import { UIXStepper } from './stepper';
+import { UIXStep } from './step';
 
 /** Button that moves to the next step in a stepper workflow. */
 @Directive({
-  selector: 'button[scdkStepperNext]',
+  selector: 'button[uixStepperNext]',
   host: {
     '[type]': 'type',
     '(click)': 'stepper.next()',
   },
 })
-export class StriveCdkStepperNext {
+export class UIXStepperNext {
 
   /** Type of the next button. Defaults to 'button' if not specified. */
   @Input() type: string = 'button';
 
-  constructor(public stepper: StriveCdkStepper) { }
+  constructor(public stepper: UIXStepper) { }
 
 }
 
 /** Button that moves to the previous step in a stepper workflow. */
 @Directive({
-  selector: 'button[scdkStepperPrevious]',
+  selector: 'button[uixStepperPrevious]',
   host: {
     '[type]': 'type',
     '(click)': 'stepper.previous()',
   },
 })
-export class StriveCdkStepperPrevious {
+export class UIXStepperPrevious {
 
   /** Type of the previous button. Defaults to 'button' if not specified. */
   @Input() type: string = 'button';
 
-  constructor(public stepper: StriveCdkStepper) { }
+  constructor(public stepper: UIXStepper) { }
 
 }
 
 /** Label that selects the given step. */
 @Directive({
-  selector: '[scdkStepperSelect]',
+  selector: '[uixStepperSelect]',
   host: {
-    '(click)': 'stepper.select(scdkStepperSelect)',
+    '(click)': 'stepper.select(uixStepperSelect)',
   },
 })
-export class StriveCdkStepperLabel {
+export class UIXStepperSelect {
 
-  @Input() scdkStepperSelect: number | StriveCdkStep | undefined;
+  @Input() uixStepperSelect: number | UIXStep | undefined;
 
-  constructor(public stepper: StriveCdkStepper) { }
+  constructor(public stepper: UIXStepper) { }
 
 }

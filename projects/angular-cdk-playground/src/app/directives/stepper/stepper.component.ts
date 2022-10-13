@@ -1,12 +1,12 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { StriveCdkStepper } from '@strivestudio/angular-cdk';
+import { UIXStepper } from '@strivestudio/angular-cdk';
 
 @Component({
   selector: 'app-stepper',
   templateUrl: './stepper.component.html',
-  providers: [{ provide: StriveCdkStepper, useExisting: StepperComponent }]
+  providers: [{ provide: UIXStepper, useExisting: StepperComponent }]
 })
-export class StepperComponent extends StriveCdkStepper {
+export class StepperComponent extends UIXStepper {
 
   constructor(changeDetectorRef: ChangeDetectorRef) {
     super(changeDetectorRef);

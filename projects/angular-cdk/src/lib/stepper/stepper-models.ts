@@ -1,4 +1,4 @@
-import { StriveCdkStep } from './step';
+import { UIXStep } from './step';
 
 /** Type of states for a step. */
 export type StepperState = 'selected' | 'completed' | 'open';
@@ -7,6 +7,6 @@ export type StepperState = 'selected' | 'completed' | 'open';
 export interface StepChangeEvent {
   selectedStepIndex: number;
   previousStepIndex: number;
-  selectedStep: StriveCdkStep;
-  previousStep: StriveCdkStep;
+  selectedStep: UIXStep;
+  previousStep: UIXStep;
 }

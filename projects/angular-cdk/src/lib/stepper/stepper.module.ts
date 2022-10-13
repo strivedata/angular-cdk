@@ -1,27 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StriveCdkStepper } from './stepper';
-import { StriveCdkStep } from './step';
-import { StriveCdkStepperLabel, StriveCdkStepperNext, StriveCdkStepperPrevious } from './stepper-buttons';
+import { UIXStepper } from './stepper';
+import { UIXStep } from './step';
+import { UIXStepperSelect, UIXStepperNext, UIXStepperPrevious } from './stepper-buttons';
 
 
 @NgModule({
   declarations: [
-    StriveCdkStep,
-    StriveCdkStepper,
-    StriveCdkStepperNext,
-    StriveCdkStepperPrevious,
-    StriveCdkStepperLabel
+    UIXStep,
+    UIXStepper,
+    UIXStepperNext,
+    UIXStepperPrevious,
+    UIXStepperSelect
   ],
   exports: [
-    StriveCdkStep,
-    StriveCdkStepper,
-    StriveCdkStepperNext,
-    StriveCdkStepperPrevious,
-    StriveCdkStepperLabel
+    UIXStep,
+    UIXStepper,
+    UIXStepperNext,
+    UIXStepperPrevious,
+    UIXStepperSelect
   ],
   imports: [
     CommonModule
   ]
 })
-export class StepperModule { }
+export class UIXStepperModule { }

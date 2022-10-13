@@ -9,27 +9,27 @@ import {
   QueryList
 } from '@angular/core';
 import { StepChangeEvent } from './stepper-models';
-import { StriveCdkStep } from './step';
+import { UIXStep } from './step';
 
 @Directive({
-  selector: '[scdkStepper],scdk-stepper',
-  exportAs: 'scdkStepper'
+  selector: '[uixStepper],uix-stepper',
+  exportAs: 'uixStepper'
 })
-export class StriveCdkStepper implements AfterContentInit {
+export class UIXStepper implements AfterContentInit {
 
   /** List of all steps for this stepper that are contained in the component's template. */
-  @ContentChildren(StriveCdkStep) steps!: QueryList<StriveCdkStep>;
+  @ContentChildren(UIXStep) steps!: QueryList<UIXStep>;
 
   /** If true, requires the user to complete previous steps before proceeding. */
   @Input() linear = false;
 
   /** Returns component of the selected step. */
-  @Input() get selectedStep(): StriveCdkStep | undefined {
+  @Input() get selectedStep(): UIXStep | undefined {
     return this.steps ? this.steps.toArray()[this.selectedStepIndex] : undefined;
   }
 
   /** Sets the component for the selected step. */
-  set selectedStep(step: StriveCdkStep | undefined) {
+  set selectedStep(step: UIXStep | undefined) {
     this.selectedStepIndex = step ? this.steps.toArray().indexOf(step) : -1;
   }
 
@@ -89,8 +89,8 @@ export class StriveCdkStepper implements AfterContentInit {
    * Sets the given step as the selected step.
    * @param step - The step to be selected.
    */
-  select(step: StriveCdkStep | number): void {
-    if (step instanceof StriveCdkStep) {
+  select(step: UIXStep | number): void {
+    if (step instanceof UIXStep) {
       this.selectedStep = step;
     } else {
       this.selectedStepIndex = step;

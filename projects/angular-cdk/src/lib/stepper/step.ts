@@ -7,18 +7,18 @@ import {
   ViewEncapsulation,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { StriveCdkStepper } from './stepper';
+import { UIXStepper } from './stepper';
 import { AbstractControl } from '@angular/forms';
 import { StepperState } from './stepper-models';
 
 @Component({
-  selector: 'scdk-step',
-  exportAs: 'scdkStep',
+  selector: 'uix-step',
+  exportAs: 'uixStep',
   template: `<ng-template><ng-content></ng-content></ng-template>`,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class StriveCdkStep implements OnInit {
+export class UIXStep implements OnInit {
 
   /** Template ref that holds the injected contents of the step. */
   @ViewChild(TemplateRef, { static: true }) content: TemplateRef<any> | null = null;
@@ -51,7 +51,7 @@ export class StriveCdkStep implements OnInit {
     return this.stepper.selectedStep === this;
   }
 
-  constructor(private stepper: StriveCdkStepper) { }
+  constructor(private stepper: UIXStepper) { }
 
   ngOnInit(): void { }
 
